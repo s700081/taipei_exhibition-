@@ -1,8 +1,8 @@
 {
- "updated_at": "2026-10-14T22:50:13+08:00",
+ "updated_at": "2026-10-15T06:56:10+08:00",
  "window": {
-  "from": "2026-10-14",
-  "to": "2027-02-11"
+  "from": "2026-10-15",
+  "to": "2027-02-12"
  },
  "sources": [
   {
@@ -24,42 +24,11 @@
    "name": "文化部文化資料開放服務網",
    "url": "https://cloud.culture.tw/",
    "ok": true,
-   "count": 24
+   "count": 23
   }
  ],
- "count": 74,
+ "count": 73,
  "exhibitions": [
-  {
-   "id": "75a8af391e",
-   "title": "「閱圖讀文」雙獎聯展-全國學生圖畫書創作獎及教育部文藝創作獎得獎作品展",
-   "venue": "美學空間",
-   "address": "臺北市南海路四十七號",
-   "district": "中正區",
-   "lat": 25.031762,
-   "lng": 121.511751,
-   "geo_precision": "venue",
-   "start": "2026-09-24",
-   "end": "2026-10-15",
-   "price": {
-    "text": "免費（非售票活動）",
-    "free": true,
-    "min": 0,
-    "max": 0,
-    "tickets": []
-   },
-   "url": "https://www.arte.gov.tw/pro1_exh_now.asp?KeyID=4596",
-   "ticket_url": null,
-   "image": "https://cloud.culture.tw/e_new_upload/task/97b68b43-4653-4595-b7a0-a816818be7c5/996778dc7e15a3aa046b1615ecc6535256fd510c47f8c0c644db3858f5d6c3ae4455f38926a3c9fc5c794bf437bf3546fc4a3735aab31017348136bff79b2cc8/6854e3de54201186df2a5ae0f0d8b003526a5184.jpg",
-   "organizer": "",
-   "description": "指導單位：教育部 為鼓勵師生從事圖文創作，並加強推廣文藝教育，本年度持續安排本館全國學生圖畫書創作獎及教育部文藝創作獎之得獎作品聯合展出，讓師生創作之優秀圖畫書及文學佳作，分享給更多民眾欣賞，展出內容豐富多元，藝文愛好者不可錯過！ 此雙獎聯展，除於本館美學空間展出外，後續並將辦理全臺巡迴展，展覽均為免費參觀，歡迎全國…",
-   "keywords": [
-    "美學空間",
-    "國立臺灣藝術教育館"
-   ],
-   "sources": [
-    "moc"
-   ]
-  },
   {
    "id": "30746e8410",
    "title": "《Watershed 分水嶺》王綺穗 個展",
