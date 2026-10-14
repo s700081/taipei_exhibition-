@@ -1,0 +1,70 @@
+name: 更新展覽資料並部署網站
+
+on:
+  schedule:
+    # 每週一 02:17（台北時間）= 週日 18:17 UTC
+    - cron: "17 18 * * 0"
+  workflow_dispatch:
+  push:
+    paths:
+      - "site/**"
+      - "scraper/**"
+      - "tests/**"
+      - ".github/workflows/update.yml"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    # 只在預設分支部署（GitHub Pages 預設只允許預設分支）
+    if: github.event_name != 'push' || github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: 單元測試
+        run: python -m unittest discover -s tests -t . -v
+
+      - name: 抓取最新展覽資料
+        if: github.event_name != 'push'
+        run: python -m scraper.main
+
+      - name: 提交更新後的資料
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/data/exhibitions.json scraper/data/geocode_cache.json
+          if git diff --cached --quiet; then
+            echo "資料沒有變更"
+          else
+            git commit -m "chore(data): 更新展覽資料 $(TZ=Asia/Taipei date +%F)"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

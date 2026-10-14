@@ -1,0 +1,107 @@
+{
+ "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"中華路一段\"}": {
+  "lat": 25.043668,
+  "lng": 121.508915,
+  "checked": "2026-10-14T14:41:32"
+ },
+ "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"忠孝東路四段\"}": {
+  "lat": 25.041362,
+  "lng": 121.553363,
+  "checked": "2026-10-14T14:41:25"
+ },
+ "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"承德路三段\"}": {
+  "lat": 25.074541,
+  "lng": 121.519987,
+  "checked": "2026-10-14T14:41:38"
+ },
+ "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"指南路二段\"}": {
+  "lat": 24.986548,
+  "lng": 121.579028,
+  "checked": "2026-10-14T14:41:49"
+ },
+ "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"瑞光路\"}": {
+  "lat": 25.078534,
+  "lng": 121.570159,
+  "checked": "2026-10-14T14:41:27"
+ },
+ "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"環河北路一段\"}": {
+  "lat": 25.060172,
+  "lng": 121.508395,
+  "checked": "2026-10-14T14:41:44"
+ },
+ "nominatim:{\"q\": \"安卓藝術\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:25"
+ },
+ "nominatim:{\"q\": \"忠孝東路四段219號, 臺北市\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:23"
+ },
+ "nominatim:{\"q\": \"慈濟大學傳播學系第23屆畢業展覽【逐幀】\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:29"
+ },
+ "nominatim:{\"q\": \"慈濟大學傳播學系第23屆畢業展覽【逐幀】-臺北場\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:28"
+ },
+ "nominatim:{\"q\": \"承德路三段131號, 臺北市\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:37"
+ },
+ "nominatim:{\"q\": \"指南路二段64號, 臺北市\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:48"
+ },
+ "nominatim:{\"q\": \"政大藝文中心\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:46"
+ },
+ "nominatim:{\"q\": \"政大藝文中心藝態空間\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:45"
+ },
+ "nominatim:{\"q\": \"琂樂堂藝文空間\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:42"
+ },
+ "nominatim:{\"q\": \"瑞光路548巷15號, 臺北市\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:26"
+ },
+ "nominatim:{\"q\": \"環河北路一段111號, 臺北市\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:43"
+ },
+ "nominatim:{\"q\": \"聯邦藝術中心\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:21"
+ },
+ "nominatim:{\"q\": \"藝態空間\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:47"
+ },
+ "nominatim:{\"q\": \"金車文藝中心\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:37"
+ },
+ "nominatim:{\"q\": \"金車文藝中心_承德館\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-14T14:41:32"
+ }
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>台北近期展覽地圖</title>
+  <meta name="description" content="每週自動更新的臺北市近期展覽地圖：展覽地點、票價、展期一次看。">
+  <meta name="theme-color" content="#b4472f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b4472f'/%3E%3Cpath d='M16 6c-4.4 0-8 3.4-8 7.8C8 19.6 16 27 16 27s8-7.4 8-13.2C24 9.4 20.4 6 16 6zm0 10.6a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+        integrity="sha384-c6Rcwz4e4CITMbu/NBmnNS8yN2sC3cUElMEMfP3vqqKFp7GOYaaBBCqmaWBjmkjb" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css"
+        integrity="sha384-uIZNAcoEHVWMk8LrCSX95DJk6FQzH6zG00LQC9BykRY1UKKpkDzDhbDLYQ1Ho3mI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css"
+        integrity="sha384-NyCa0nBOjmCqS9HwLKpE7yqy2HVG6PN/cDyAAIdPijDlUH6jCfqX6ydzXFTA/L/l" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1>台北近期展覽地圖</h1>
+      <p class="meta" id="meta">載入中…</p>
+    </div>
+    <div class="view-toggle" role="tablist" aria-label="切換檢視">
+      <button type="button" role="tab" data-view="list" aria-selected="true">列表</button>
+      <button type="button" role="tab" data-view="map" aria-selected="false">地圖</button>
+    </div>
+  </header>
+
+  <section class="filters" aria-label="篩選條件">
+    <label class="search">
+      <span class="sr-only">搜尋</span>
+      <input type="search" id="q" placeholder="搜尋展覽、場館、主辦單位…" autocomplete="off">
+    </label>
+    <div class="chips" role="radiogroup" aria-label="展期" id="when">
+      <button type="button" class="chip" data-value="all" aria-pressed="true">全部</button>
+      <button type="button" class="chip" data-value="ongoing" aria-pressed="false">展出中</button>
+      <button type="button" class="chip" data-value="weekend" aria-pressed="false">本週末</button>
+      <button type="button" class="chip" data-value="ending" aria-pressed="false">即將結束</button>
+      <button type="button" class="chip" data-value="upcoming" aria-pressed="false">即將開展</button>
+    </div>
+    <div class="selects">
+      <label><span class="sr-only">費用</span>
+        <select id="price">
+          <option value="all">不限費用</option>
+          <option value="free">只看免費</option>
+          <option value="paid">只看售票</option>
+        </select>
+      </label>
+      <label><span class="sr-only">行政區</span>
+        <select id="district">
+          <option value="all">所有行政區</option>
+        </select>
+      </label>
+      <label><span class="sr-only">排序</span>
+        <select id="sort">
+          <option value="ending">即將結束優先</option>
+          <option value="newest">最新開展優先</option>
+          <option value="cheapest">票價低到高</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <main class="layout" data-view="list">
+    <section class="list-pane" aria-label="展覽列表">
+      <p class="result-count" id="count" aria-live="polite"></p>
+      <ol class="cards" id="cards"></ol>
+      <p class="empty" id="empty" hidden>沒有符合條件的展覽，試試放寬篩選條件。</p>
+      <footer class="site-footer">
+        <p>資料來源：<span id="sources"></span>。每週自動更新；票價與展期以主辦單位公告為準。
+          標示「約略位置」的展覽，地圖上只顯示所在行政區或路段附近。</p>
+      </footer>
+    </section>
+    <section class="map-pane" aria-label="展覽地圖">
+      <div id="map"></div>
+    </section>
+  </main>
+
+
+  <template id="card-template">
+    <li class="card">
+      <article>
+        <img class="thumb" alt="" loading="lazy" referrerpolicy="no-referrer" hidden>
+        <div class="body">
+          <p class="status"></p>
+          <h2 class="title"><button type="button" class="locate"></button></h2>
+          <p class="venue"></p>
+          <dl class="facts">
+            <div><dt>展期</dt><dd class="dates"></dd></div>
+            <div><dt>票價</dt><dd class="price"></dd></div>
+          </dl>
+          <p class="links"></p>
+        </div>
+      </article>
+    </li>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+          integrity="sha384-NElt3Op+9NBMCYaef5HxeJmU4Xeard/Lku8ek6hoPTvYkQPh3zLIrJP7KiRocsxO" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"
+          integrity="sha384-SIh+qcEBNMda8tT+rx66aCBuWtVYMVzRABqhK4eeQh4pjDHoRdVx8nYU4LQ5eGzI" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+</html>
