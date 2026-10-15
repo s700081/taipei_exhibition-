@@ -17,6 +17,7 @@
 | [文化部文化資料開放服務網](https://cloud.culture.tw/) | 全國藝文活動（類別 6：展覽） | 篩選出位於北北基桃的展覽 |
 | [臺北市立美術館](https://www.tfam.museum/) | 目前展覽、即將展出 | 官網公開的展覽資料 |
 | [國立臺灣科學教育館](https://www.ntsec.gov.tw/) | 特展、微型展 | 從官網列表頁與展覽頁讀取展期、展區；票價依官網常設展票價 |
+| [華山1914文化創意產業園區](https://www.huashan1914.com/) | 類別為「展覽」的活動 | 依官網 robots.txt，從 sitemap 取得活動頁再讀取展期、展館、票價（不抓市集、快閃店） |
 | [新北市美術館](https://ntcart.museum/) | 目前展覽、即將展出 | 官網展覽資料（含票價、購票連結） |
 | 新北市立博物館 RSS（[鶯歌陶瓷](https://www.ceramics.ntpc.gov.tw/)、[十三行](https://www.sshm.ntpc.gov.tw/)、[淡水古蹟](https://www.tshs.ntpc.gov.tw/)） | 展覽 | 從 RSS 說明讀取展期 |
 | [新北市政府 近期活動](https://data.ntpc.gov.tw/datasets/029e3fc2-1927-4534-8702-da7323be969b) | 市府、圖書館、地政事務所等的藝文展覽 | 只收標題含「展」的活動（排除書展、講座等） |
@@ -109,7 +110,7 @@ tests/                 單元測試
 
 `aliases` 是會出現在來源「地點名稱」中的字串；`street_keys` 是「路段＋門牌」，用來比對地址；`city` 省略時視為臺北市。
 
-**調整「科學・科技」主題的判斷**：編輯 `scraper/normalize.py` 的 `_SCIENCE_VENUES`（場館）與 `_SCIENCE_WORDS`（標題關鍵字）。
+**調整主題的判斷**：「科學・科技」編輯 `scraper/normalize.py` 的 `_SCIENCE_VENUES`（場館）與 `_SCIENCE_WORDS`（標題關鍵字）；「百貨・商品展」編輯 `_MALL_WORDS`（場館名稱）。沒有任何展覽的主題不會出現在選單中。
 
 **新增資料來源**：在 `scraper/sources/` 新增模組，提供 `SOURCE_ID`、`SOURCE_NAME`、`SOURCE_URL` 與回傳共用格式的 `collect()`（欄位見 `scraper/sources/__init__.py`），再加入 `SOURCES` 清單。
 

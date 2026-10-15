@@ -59,6 +59,11 @@ class TopicTest(unittest.TestCase):
         self.assertEqual(detect_topics("Oh!海郵-海洋生物郵票特展", "郵政博物館"), [])
         self.assertEqual(detect_topics("王雅慧：旅行者", "臺北市立美術館"), [])
 
+    def test_mall(self):
+        self.assertEqual(detect_topics("某動漫主題展", "新光三越台北信義新天地A11 6F"), ["mall"])
+        self.assertEqual(detect_topics("某快閃展", "遠東SOGO台北忠孝館12F"), ["mall"])
+        self.assertEqual(detect_topics("某展", "台北當代藝術館"), [])
+
 
 class NtsecParseTest(unittest.TestCase):
     def test_list_ignores_navigation(self):

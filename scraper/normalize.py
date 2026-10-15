@@ -241,11 +241,21 @@ _SCIENCE_WORDS = re.compile(
 )
 
 
+# 百貨公司、購物中心（商品展、快閃展多在這些地方）
+_MALL_WORDS = re.compile(
+    r"(新光三越|SOGO|崇光|遠東百貨|遠百|Big ?City|微風|統一時代|京站|ATT ?4 ?FUN|誠品生活|"
+    r"太平洋百貨|環球購物中心|大江購物中心|華泰名品城|美麗華|大魯閣|三創|百貨|購物中心|商場|Mall)",
+    re.IGNORECASE,
+)
+
+
 def detect_topics(title: str, venue: str = "", organizer: str = "") -> list[str]:
     topics = []
     place = to_tai(f"{venue} {organizer}")
     if any(v in place for v in _SCIENCE_VENUES) or _SCIENCE_WORDS.search(to_tai(title)):
         topics.append("science")
+    if _MALL_WORDS.search(to_tai(venue)):
+        topics.append("mall")
     return topics
 
 

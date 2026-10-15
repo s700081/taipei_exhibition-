@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-15T21:50:15+08:00",
+ "updated_at": "2026-10-15T22:56:05+08:00",
  "window": {
   "from": "2026-10-15",
   "to": "2027-02-12"
@@ -18,6 +18,13 @@
    "url": "https://www.ntsec.gov.tw/",
    "ok": true,
    "count": 7
+  },
+  {
+   "id": "huashan",
+   "name": "華山1914文化創意產業園區",
+   "url": "https://www.huashan1914.com/",
+   "ok": true,
+   "count": 11
   },
   {
    "id": "ntcam",
@@ -69,7 +76,7 @@
    "count": 59
   }
  ],
- "count": 149,
+ "count": 160,
  "exhibitions": [
   {
    "id": "30746e8410",
@@ -99,6 +106,111 @@
    "topics": [],
    "sources": [
     "culture_express"
+   ]
+  },
+  {
+   "id": "b4351bb999",
+   "title": "2026伊甸基金會第13屆無障礙生活節",
+   "venue": "華山1914文化創意產業園區 中5B館 鍋爐室",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/2026%E4%BC%8A%E7%94%B8%E5%9F%BA%E9%87%91%E6%9C%83%E7%AC%AC13%E5%B1%86%E7%84%A1%E9%9A%9C%E7%A4%99%E7%94%9F%E6%B4%BB%E7%AF%80",
+   "ticket_url": null,
+   "image": "https://files.huashan1914.com/%E8%8F%AF%E5%B1%B1%E5%AE%98%E7%B6%B2%E6%B4%BB%E5%8B%95%201920X1080_1.jpg",
+   "organizer": "伊甸基金會",
+   "description": "「無障礙生活」不單單是消除環境中的障礙，更是指讓每個人都有平等參與的機會。身心 障礙朋友在日常生活中所面臨的偏見與高牆，往往讓交流止步於誤解與歧視。但伊甸始終 相信，當我們站在同一個起點，看見的不該只是障礙，更是每個人的能力與無限可能。 伊甸基金會「第13屆無障礙生活節」台北場，於10 月 16 日（五）至 10 月…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
+   ]
+  },
+  {
+   "id": "135f712d2d",
+   "title": "愛手創國際手作設計節 靈感午茶會",
+   "venue": "華山1914文化創意產業園區 東2A館 四連棟、東2B館 四連棟、東2C館 四連棟、東2D館 四連棟",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/%E6%84%9B%E6%89%8B%E5%89%B5%E5%9C%8B%E9%9A%9B%E6%89%8B%E4%BD%9C%E8%A8%AD%E8%A8%88%E7%AF%80%20%E9%9D%88%E6%84%9F%E5%8D%88%E8%8C%B6%E6%9C%83%20",
+   "ticket_url": null,
+   "image": "https://files.huashan1914.com/%E8%8F%AF%E5%B1%B1_1920x1080px.jpg",
+   "organizer": "欣宸國際/愛手創ISHANDS",
+   "description": "⸜愛手創國際手作設計節 靈感午茶會⸝ 售票正式開跑🏃 #超過200位海內外創作者齊聚 .ᐟ.ᐟ 開放售票啦🎟️▶ https://lihi1.me/NbXbZ ​-- 今年，愛手創國際手作設計節將化身為充滿想像力的奇幻午茶派對.ᐟ ​ 在這裡，飾品變身精緻餅乾、皮件幻化為茶壺， 工藝與靈感將在繽紛幻境中交織碰撞。 ​…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
+   ]
+  },
+  {
+   "id": "561e17cd2c",
+   "title": "ACE (Asia Collectors Expo) 第二屆國際球員卡卡展",
+   "venue": "華山1914文化創意產業園區 西5-1館 壓縮兼包裝工場、西5-2館 壓縮兼包裝工場、西1館 第二乾餾場",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/ACE",
+   "ticket_url": "https://www.accupass.com/event/2609300830115903271280",
+   "image": "https://files.huashan1914.com/01_1920x1080.jpg",
+   "organizer": "藏星股份有限公司",
+   "description": "ACE 國際卡展集結球員卡、TCG 與國際收藏文化，打造專屬收藏玩家的國際級交流盛會。 本屆邀集來自海外的 15 家國際商家共同參展，並匯聚全球收藏產業重要品牌與專業機構，包括國際級拍賣平台 Goldin、收藏產業平台 Fanatics，以及專業鑑定機構 CGC。 從球員卡、TCG、收藏卡牌，到鑑定、拍賣與國際市場交…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
    ]
   },
   {
@@ -201,6 +313,41 @@
    "topics": [],
    "sources": [
     "ntpc_events"
+   ]
+  },
+  {
+   "id": "29457ffd7b",
+   "title": "《台灣光華雜誌》50 週年攝影展──照見台灣",
+   "venue": "華山1914文化創意產業園區 西2館 第三乾餾場",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-09",
+   "end": "2026-10-19",
+   "price": {
+    "text": "免費入場🆓",
+    "free": true,
+    "min": 0,
+    "max": 0,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/%E3%80%8A%E5%8F%B0%E7%81%A3%E5%85%89%E8%8F%AF%E9%9B%9C%E8%AA%8C%E3%80%8B50%20%E9%80%B1%E5%B9%B4%E6%94%9D%E5%BD%B1%E5%B1%95%E2%94%80%E2%94%80%E7%85%A7%E8%A6%8B%E5%8F%B0%E7%81%A3",
+   "ticket_url": null,
+   "image": "https://files.huashan1914.com/%E5%85%89%E8%8F%AF50_%E8%8F%AF%E5%B1%B1%E5%AE%98%E7%B6%B2%E6%B4%BB%E5%8B%95.jpg",
+   "organizer": "華山1914文化創意產業園區",
+   "description": "【《台灣光華雜誌》50週年攝影展──照見台灣，即將登場！📷💌✨】 50年來，《台灣光華雜誌》以鏡頭為筆，穿梭於城鄉、山海與街巷，記錄了台灣的歲月流轉、民主脈動與社會變遷。這些珍貴的光影，不僅刻劃了這片土地的呼吸，也凝結成我們共同的記憶。 這些深具時代溫度的影像即將匯聚──《台灣光華雜誌》50 週年攝影展，正式啟動！…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
    ]
   },
   {
@@ -421,6 +568,76 @@
    ]
   },
   {
+   "id": "f2ca1e4090",
+   "title": "2026 全家 x RE-THINK 「這還好吧！？」生活環境觀察展",
+   "venue": "華山1914文化創意產業園區 中2館",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-16",
+   "end": "2026-10-26",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/2026%20%E5%85%A8%E5%AE%B6%20x%20RE-THINK%20%E3%80%8C%E9%80%99%E9%82%84%E5%A5%BD%E5%90%A7%EF%BC%81%EF%BC%9F%E3%80%8D%E7%94%9F%E6%B4%BB%E7%92%B0%E5%A2%83%E8%A7%80%E5%AF%9F%E5%B1%95",
+   "ticket_url": null,
+   "image": "https://files.huashan1914.com/%E8%8F%AF%E5%B1%B1%E5%AE%98%E7%B6%B2%E6%B4%BB%E5%8B%95%20%E5%A3%93%E7%B8%AE_1.jpg",
+   "organizer": "RE-THINK 重新思考 × 全家便利商店",
+   "description": "「買太多食物吃不完，也還好吧！？」 「邊走路邊滑手機還好吧！？」 ​ 忙碌的生活裡，我們常常為了圖個方便，順口說出「這還好吧！？」 但這些看似微小的決定，真的都「還好」嗎？ 去年，超過 3 萬人走進 RE-THINK 與全家便利商店舉辦的「這還好吧！？」生活環境觀察展；看完後有人發起連署、有人展開環島淨街，連政府都提…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
+   ]
+  },
+  {
+   "id": "f1c9f52355",
+   "title": "HUMANITY｜教育部藝術與設計菁英海外培訓計畫 返國學員年度成果展",
+   "venue": "華山1914文化創意產業園區 中4B館 米酒作業場",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-22",
+   "end": "2026-10-26",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/HUMANITY%EF%BD%9C%E6%95%99%E8%82%B2%E9%83%A8%E8%97%9D%E8%A1%93%E8%88%87%E8%A8%AD%E8%A8%88%E8%8F%81%E8%8B%B1%E6%B5%B7%E5%A4%96%E5%9F%B9%E8%A8%93%E8%A8%88%E7%95%AB%20%E8%BF%94%E5%9C%8B%E5%AD%B8%E5%93%A1%E5%B9%B4%E5%BA%A6%E6%88%90%E6%9E%9C%E5%B1%95",
+   "ticket_url": null,
+   "image": "https://files.huashan1914.com/2026MOE%20-%20%E8%8F%AF%E5%B1%B1%E5%AE%98%E6%96%B9%E5%AE%A3%E5%82%B3_%E5%AE%98%E7%B6%B2banner%E8%88%87%E6%B4%BB%E5%8B%95%E5%85%A7%E9%A0%81%E4%B8%BB%E5%9C%96.jpg",
+   "organizer": "教育部 協辦單位：國立雲林科技大學",
+   "description": "那時候，AI 還只是聊天與想像中的話題；幾年後，它已成為這個時代的樣貌：我們敲下鍵盤，輸入 prompt，無數資訊瞬間經過運算與轉譯，層層疊加在創作之初。曾經需要摸索的過程，如今可以在幾秒之間被生成、重組，甚至被預見。 ​ 也是那個時候，設計師談論更多是美感的建立與落實；幾年後的今天，他們也不再只是畫面的營造者，設計…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
+   ]
+  },
+  {
    "id": "be651cc206",
    "title": "潮聲墨影—2026基隆市書道會會員聯展",
    "venue": "基隆美術館301展覽室",
@@ -512,6 +729,146 @@
    "topics": [],
    "sources": [
     "moc"
+   ]
+  },
+  {
+   "id": "32386cfba5",
+   "title": "小梅的奇幻冒險 : 尋回心意之書 Deer May",
+   "venue": "華山1914文化創意產業園區 東3A館",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-01",
+   "end": "2026-10-31",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/%E5%B0%8F%E6%A2%85%E7%9A%84%E5%A5%87%E5%B9%BB%E5%86%92%E9%9A%AA%20:%20%E5%B0%8B%E5%9B%9E%E5%BF%83%E6%84%8F%E4%B9%8B%E6%9B%B8%20Deer%20May",
+   "ticket_url": "https://www.klook.com/zh-TW/activity/184829-meis-fantastic-adventure-the-quest-for-the-book-of-heartfelt-wishes/",
+   "image": "https://files.huashan1914.com/%E5%85%89%E4%B9%8B%E5%A1%94%EF%BC%9A%E5%B0%8F%E6%A2%85%E7%9A%84%E5%A5%87%E5%B9%BB%E5%86%92%E9%9A%AA.png",
+   "organizer": "光之塔動畫事業有限公司",
+   "description": "全境式沉浸動畫互動劇場鉅獻｜《小梅的奇幻冒險：尋回心意之書》 由國際獲獎無數的知名動畫導演—紀柏舟親自操刀，率領曾打造國際視覺金獎的動畫團隊--光之塔動畫，精心打造全新沉浸式動畫互動劇場，夢幻登場！ 這是一場童話般的動畫盛宴! 故事與世界觀延伸自備受注目、即將登場的全新台灣兒童動畫IP—《小梅&穿穿》，導演專為全境式…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
+   ]
+  },
+  {
+   "id": "82742a9cb8",
+   "title": "星球樂園 PLANET PARK",
+   "venue": "華山1914文化創意產業園區 東3A館",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-01",
+   "end": "2026-10-31",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/%20%E6%98%9F%E7%90%83%E6%A8%82%E5%9C%92%20PLANET%20PARK",
+   "ticket_url": "https://www.klook.com/zh-TW/activity/127363-planet-park-immersive-interactive-playground/",
+   "image": "https://files.huashan1914.com/Planet%20park1920x1080_1.jpg",
+   "organizer": "紅然 RYB STUDIO",
+   "description": "您是否曾經幻想過踏上遙遠的星球，體驗一場前所未有的時空旅行？ MAGiC BOX 魔術方塊數位故事館推出的原創節目《星球樂園》，將帶你穿越時空，探索一個擁有地球相同生物卻完全打破陸海空界限的神奇世界。全境式投影結合先進的互動體驗技術，讓你彷彿置身在異世界探索冒險，無論是大朋友小朋友，都將能在星球樂園中獲得無限的驚喜與…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
+   ]
+  },
+  {
+   "id": "73834e8481",
+   "title": "流浪蓋婭號 WANDERING GAIA",
+   "venue": "華山1914文化創意產業園區 東3A館",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-01",
+   "end": "2026-10-31",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/%E6%B5%81%E6%B5%AA%E8%93%8B%E5%A9%AD%E8%99%9F%20%20%20WANDERING%20GAIA",
+   "ticket_url": "https://www.klook.com/zh-TW/activity/139452-wandering-gaia-immersive-interactive-show/",
+   "image": "https://files.huashan1914.com/1920x1080_3.jpg",
+   "organizer": "紅然 RYB STUDIO",
+   "description": "準備好搭乘太空船，展開一場充滿奇幻與驚喜的太空旅程了嗎？ 流浪蓋婭號將帶你造訪三個神秘星球，每顆星球都藏著未解的秘密與驚奇！透過全境式沉浸投影與先進的互動技術完美結合，您可以即時與環境和生物互動，探索星球的神祕之處。無論大朋友或小朋友，都能在《流浪蓋婭號》這場奇幻冒險中獲得滿滿的驚喜與感動！ ※票價資訊：全票NT$3…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
+   ]
+  },
+  {
+   "id": "87e78e1fa8",
+   "title": "牧神的午後 L’Après-midi d’un faune",
+   "venue": "華山1914文化創意產業園區 東3A館",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-01",
+   "end": "2026-10-31",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/%E7%89%A7%E7%A5%9E%E7%9A%84%E5%8D%88%E5%BE%8C%20L%E2%80%99Apr%C3%A8s-midi%20d%E2%80%99un%20faune",
+   "ticket_url": "https://www.klook.com/zh-TW/activity/127363-planet-park-immersive-interactive-playground/",
+   "image": "https://files.huashan1914.com/1920x1080%20%281%29.png",
+   "organizer": "紅然 RYB STUDIO",
+   "description": "《牧神的午後》——穿越平行時空的療癒森林 在繁忙的生活中，是否也渴望短暫逃離現實，讓心靈得以歇息？ 《牧神的午後》為廣受好評的《離線時區》展覽全新改版之作，延續原作療癒溫柔的風格，加入奇幻動物與森林意象，營造出如夢似幻的平行時空。觀眾將彷彿走入一座不存在於現實世界的奇幻森林，讓視覺與感官在光影間重新獲得能量。 展覽名…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
    ]
   },
   {
@@ -2459,6 +2816,41 @@
    "topics": [],
    "sources": [
     "culture_express"
+   ]
+  },
+  {
+   "id": "2e88ab9672",
+   "title": "《風景正在發生 Landscapes in the Making 》 台灣藝術家五人聯展A Group Exhibition of Five Taiwanese Artists",
+   "venue": "華山1914文化創意產業園區 西7-2館",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-21",
+   "end": "2026-12-27",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.huashan1914.com/exhibition/%E5%A4%9A%E7%B4%8D%E8%97%9D%E8%A1%93",
+   "ticket_url": null,
+   "image": "https://files.huashan1914.com/%E9%A2%A8%E6%99%AF%E6%AD%A3%E5%9C%A8%E7%99%BC%E7%94%9F_%E8%8F%AF%E5%B1%B1_1080x800%20%282%29.jpg",
+   "organizer": "多納藝術",
+   "description": "《風景正在發生》台灣藝術家五人聯展 Landscapes in the Making 每天經過的街角、遠處熟悉的建築，在某次停下腳步時，忽然有了不同的樣子。 周政緯筆下的101，從城市的日常視角浮現。細密的線條、淡淡的色層，讓人重新留意建築之間的距離，以及那些平常匆匆走過的風景。 多納藝術於10月21日起推出《風景正…",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "huashan"
    ]
   },
   {

@@ -525,6 +525,19 @@
     }
   }
 
+  // 主題選單：沒有任何展覽的主題先隱藏，並顯示檔數
+  function fillTopics(list) {
+    const select = $("#topic");
+    if (!select) return;
+    for (const opt of select.options) {
+      if (opt.value === "all") continue;
+      const n = list.filter((ex) => (ex.topics || []).includes(opt.value)).length;
+      opt.hidden = n === 0;
+      opt.disabled = n === 0;
+      opt.textContent = `${opt.textContent.replace(/（\d+）$/, "")}（${n}）`;
+    }
+  }
+
   // 行政區選單：選定縣市時只列該縣市；未選時依縣市分組。值為「縣市|行政區」
   function fillDistricts(list) {
     const select = $("#district");
@@ -592,6 +605,7 @@
     renderMeta(data);
     fillCities(current());
     fillDistricts(current());
+    fillTopics(current());
     const list = apply();
 
     fitAll();
