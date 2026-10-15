@@ -19,10 +19,25 @@
   "lng": null,
   "checked": "2026-10-15T13:45:28"
  },
+ "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"中正區市民大道三段\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:35"
+ },
  "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"中華路一段\"}": {
   "lat": 25.043668,
   "lng": 121.508915,
   "checked": "2026-10-14T14:41:32"
+ },
+ "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"內湖區潭美街\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:39"
+ },
+ "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"內湖區舊宗路一段\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:49"
  },
  "nominatim:{\"city\": \"臺北市\", \"country\": \"臺灣\", \"street\": \"忠孝東路四段\"}": {
   "lat": 25.041362,
@@ -53,6 +68,16 @@
   "lat": null,
   "lng": null,
   "checked": "2026-10-15T13:45:37"
+ },
+ "nominatim:{\"q\": \"全國動物醫院臺北分院樓上\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:44"
+ },
+ "nominatim:{\"q\": \"威剛科技總部大樓\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:37"
  },
  "nominatim:{\"q\": \"安卓藝術\"}": {
   "lat": null,
@@ -149,6 +174,11 @@
   "lng": 121.222194,
   "checked": "2026-10-15T13:45:42"
  },
+ "nominatim:{\"q\": \"民大道三段2號, 臺北市\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:34"
+ },
  "nominatim:{\"q\": \"淡水分館\"}|新北市": {
   "lat": 25.172706,
   "lng": 121.437986,
@@ -163,6 +193,16 @@
   "lat": null,
   "lng": null,
   "checked": "2026-10-15T13:45:26"
+ },
+ "nominatim:{\"q\": \"潭美街533號, 臺北市\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:38"
+ },
+ "nominatim:{\"q\": \"灰棚（近捷運中山站／雙連站）\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:41"
  },
  "nominatim:{\"q\": \"琂樂堂藝文空間\"}": {
   "lat": null,
@@ -184,10 +224,30 @@
   "lng": null,
   "checked": "2026-10-14T14:41:21"
  },
+ "nominatim:{\"q\": \"臺北三創\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:32"
+ },
+ "nominatim:{\"q\": \"舊宗路一段30巷13號, 臺北市\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:48"
+ },
  "nominatim:{\"q\": \"藝態空間\"}": {
   "lat": null,
   "lng": null,
   "checked": "2026-10-14T14:41:47"
+ },
+ "nominatim:{\"q\": \"近捷運中山站\"}": {
+  "lat": 25.052889,
+  "lng": 121.519744,
+  "checked": "2026-10-15T15:25:41"
+ },
+ "nominatim:{\"q\": \"近潭美國小\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:48"
  },
  "nominatim:{\"q\": \"金城路一段101號, 新北市\"}|新北市": {
   "lat": null,
@@ -203,5 +263,10 @@
   "lat": null,
   "lng": null,
   "checked": "2026-10-14T14:41:32"
+ },
+ "nominatim:{\"q\": \"關渡碼頭貨櫃市集\"}": {
+  "lat": null,
+  "lng": null,
+  "checked": "2026-10-15T15:25:42"
  }
 }

@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-15T22:56:05+08:00",
+ "updated_at": "2026-10-15T23:34:06+08:00",
  "window": {
   "from": "2026-10-15",
   "to": "2027-02-12"
@@ -55,6 +55,13 @@
    "count": 3
   },
   {
+   "id": "skm",
+   "name": "新光三越",
+   "url": "https://www.skm.com.tw/",
+   "ok": true,
+   "count": 2
+  },
+  {
    "id": "culture_express",
    "name": "臺北市文化局 臺北文化快遞",
    "url": "https://cultureexpress.taipei/",
@@ -69,6 +76,20 @@
    "count": 10
   },
   {
+   "id": "ibon",
+   "name": "ibon售票 展覽",
+   "url": "https://ticket.ibon.com.tw/",
+   "ok": true,
+   "count": 16
+  },
+  {
+   "id": "accupass",
+   "name": "Accupass 活動通（快閃展）",
+   "url": "https://www.accupass.com/",
+   "ok": true,
+   "count": 2
+  },
+  {
    "id": "moc",
    "name": "文化部文化資料開放服務網",
    "url": "https://cloud.culture.tw/",
@@ -76,7 +97,7 @@
    "count": 59
   }
  ],
- "count": 160,
+ "count": 176,
  "exhibitions": [
   {
    "id": "30746e8410",
@@ -156,14 +177,14 @@
    "start": "2026-10-16",
    "end": "2026-10-18",
    "price": {
-    "text": "未提供票價資訊",
-    "free": null,
-    "min": null,
-    "max": null,
+    "text": "NT$198–480",
+    "free": false,
+    "min": 198,
+    "max": 480,
     "tickets": []
    },
    "url": "https://www.huashan1914.com/exhibition/%E6%84%9B%E6%89%8B%E5%89%B5%E5%9C%8B%E9%9A%9B%E6%89%8B%E4%BD%9C%E8%A8%AD%E8%A8%88%E7%AF%80%20%E9%9D%88%E6%84%9F%E5%8D%88%E8%8C%B6%E6%9C%83%20",
-   "ticket_url": null,
+   "ticket_url": "https://tour.ibon.com.tw/event/6a66f004f881df3d806341e5",
    "image": "https://files.huashan1914.com/%E8%8F%AF%E5%B1%B1_1920x1080px.jpg",
    "organizer": "欣宸國際/愛手創ISHANDS",
    "description": "⸜愛手創國際手作設計節 靈感午茶會⸝ 售票正式開跑🏃 #超過200位海內外創作者齊聚 .ᐟ.ᐟ 開放售票啦🎟️▶ https://lihi1.me/NbXbZ ​-- 今年，愛手創國際手作設計節將化身為充滿想像力的奇幻午茶派對.ᐟ ​ 在這裡，飾品變身精緻餅乾、皮件幻化為茶壺， 工藝與靈感將在繽紛幻境中交織碰撞。 ​…",
@@ -175,7 +196,8 @@
    ],
    "topics": [],
    "sources": [
-    "huashan"
+    "huashan",
+    "ibon"
    ]
   },
   {
@@ -282,6 +304,7 @@
    "topics": [],
    "sources": [
     "culture_express",
+    "ibon",
     "moc"
    ]
   },
@@ -472,6 +495,39 @@
    ]
   },
   {
+   "id": "15b6899b4b",
+   "title": "Maker Faire Taipei 2026",
+   "venue": "瓶蓋工廠 台北製造所",
+   "address": "台北市南港區南港路二段13號",
+   "city": "臺北市",
+   "district": "南港區",
+   "lat": 25.053508,
+   "lng": 121.604508,
+   "geo_precision": "venue",
+   "start": "2026-10-24",
+   "end": "2026-10-25",
+   "price": {
+    "text": "NT$260–399",
+    "free": false,
+    "min": 260,
+    "max": 399,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39995",
+   "ticket_url": "https://tour.ibon.com.tw/event/6ab31928542dc34f66382be4",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/cbd12fbb-dfbb-47f2-83a9-b74d3292becf.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [
+    "瓶蓋工廠台北製造所",
+    "瓶蓋工廠"
+   ],
+   "topics": [],
+   "sources": [
+    "ibon"
+   ]
+  },
+  {
    "id": "401c40544c",
    "title": "「黯像：看見不見」展覽-凝視之界",
    "venue": "國家攝影文化中心",
@@ -638,6 +694,41 @@
    ]
   },
   {
+   "id": "2fa086fc4c",
+   "title": "SIF IN TAIPEI首爾插畫展 台北站",
+   "venue": "華山1914文創園區 東2館四連棟",
+   "address": "臺北市中正區八德路一段1號",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.044609,
+   "lng": 121.529183,
+   "geo_precision": "venue",
+   "start": "2026-10-23",
+   "end": "2026-10-26",
+   "price": {
+    "text": "NT$160–500",
+    "free": false,
+    "min": 160,
+    "max": 500,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39893",
+   "ticket_url": "https://tour.ibon.com.tw/event/6a6aeedde820d11df8ddbb79",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/808170a5-daee-4edf-90ce-2f740ed40129.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [
+    "華山1914文化創意產業園區",
+    "華山1914",
+    "華山文創園區",
+    "華山文化園區"
+   ],
+   "topics": [],
+   "sources": [
+    "ibon"
+   ]
+  },
+  {
    "id": "be651cc206",
    "title": "潮聲墨影—2026基隆市書道會會員聯展",
    "venue": "基隆美術館301展覽室",
@@ -699,6 +790,42 @@
    "topics": [],
    "sources": [
     "culture_express"
+   ]
+  },
+  {
+   "id": "f9836f2978",
+   "title": "2026寶可夢30週年快閃店",
+   "venue": "新光三越台北南西店",
+   "address": "臺北市中山區南京西路12號",
+   "city": "臺北市",
+   "district": "中山區",
+   "lat": 25.052085,
+   "lng": 121.521098,
+   "geo_precision": "venue",
+   "start": "2026-10-14",
+   "end": "2026-10-28",
+   "price": {
+    "text": "免費入場",
+    "free": true,
+    "min": 0,
+    "max": 0,
+    "tickets": []
+   },
+   "url": "https://www.skm.com.tw/page/101/20261014010101",
+   "ticket_url": null,
+   "image": "https://img.skmbuy.com.tw/App_Images/727/Page/2026/1014/03c300a1-2537-4ecf-9f6a-c07fcaa29d07.png.webp",
+   "organizer": "新光三越",
+   "description": "即日起至10/28，就在新光三越台北南西店 現場多種寶可夢周邊，還有扭蛋機、滿額贈、限定優惠⚡",
+   "keywords": [
+    "新光三越台北南西店",
+    "新光三越南西",
+    "南西店"
+   ],
+   "topics": [
+    "mall"
+   ],
+   "sources": [
+    "skm"
    ]
   },
   {
@@ -964,6 +1091,40 @@
    ]
   },
   {
+   "id": "e99e59d370",
+   "title": "台創祭7-原創漫畫X圖文創作X手作設計",
+   "venue": "松山文創園區-3號、4號、5號倉庫",
+   "address": "台北市信義區光復南路133號",
+   "city": "臺北市",
+   "district": "信義區",
+   "lat": 25.043723,
+   "lng": 121.560797,
+   "geo_precision": "venue",
+   "start": "2026-10-31",
+   "end": "2026-11-01",
+   "price": {
+    "text": "NT$200–450",
+    "free": false,
+    "min": 200,
+    "max": 450,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39984",
+   "ticket_url": "https://tour.ibon.com.tw/event/6ab0cba96f5e8a02fffd8a75",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/4cc30f3f-c2a4-4a7e-bb53-49e0faa3e776.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [
+    "松山文創園區",
+    "松菸",
+    "松山菸廠"
+   ],
+   "topics": [],
+   "sources": [
+    "ibon"
+   ]
+  },
+  {
    "id": "e262cbfb8c",
    "title": "「虛空之境」展覽-領土",
    "venue": "國家攝影文化中心",
@@ -1080,6 +1241,42 @@
    "topics": [],
    "sources": [
     "culture_express"
+   ]
+  },
+  {
+   "id": "cf463117a8",
+   "title": "A11 3F轉角藝術 | meow meow cry",
+   "venue": "新光三越台北信義新天地A11 3F",
+   "address": "臺北市信義區松壽路11號",
+   "city": "臺北市",
+   "district": "信義區",
+   "lat": 25.03647,
+   "lng": 121.567272,
+   "geo_precision": "venue",
+   "start": "2026-09-18",
+   "end": "2026-11-03",
+   "price": {
+    "text": "免費入場",
+    "free": true,
+    "min": 0,
+    "max": 0,
+    "tickets": []
+   },
+   "url": "https://www.skm.com.tw/page/121/202609cornerartMeowmeowcry",
+   "ticket_url": null,
+   "image": "https://img.skmbuy.com.tw/App_Images/727/Page/2026/0918/4f9e65f4-2ceb-44b6-bd73-b3f6b7b7bdb8.jpg.webp",
+   "organizer": "新光三越",
+   "description": "《meowmeowcry喵喵哭哭》是一場獻給所有敏感心靈的沉浸式情緒展覽。 我們邀請每一位曾被悲傷淹沒的人，來到這裡卸下防備，重新看待內心的起伏與脆弱。",
+   "keywords": [
+    "新光三越台北信義新天地A11",
+    "信義新天地A11",
+    "新天地A11"
+   ],
+   "topics": [
+    "mall"
+   ],
+   "sources": [
+    "skm"
    ]
   },
   {
@@ -1323,6 +1520,79 @@
    "topics": [],
    "sources": [
     "culture_express"
+   ]
+  },
+  {
+   "id": "8e67a0a6c4",
+   "title": "Hearts2Hearts The 2nd Mini Album [Lemon Tang] POP-UP in TAIPEI",
+   "venue": "統一時代百貨台北店",
+   "address": "臺北市信義區忠孝東路五段8號B2",
+   "city": "臺北市",
+   "district": "信義區",
+   "lat": 25.040584,
+   "lng": 121.565483,
+   "geo_precision": "venue",
+   "start": "2026-10-24",
+   "end": "2026-11-08",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.accupass.com/event/2609230322037570943000",
+   "ticket_url": null,
+   "image": "https://static.accupass.com/eventbanner/2610021114291005339755_P520x260.jpg",
+   "organizer": "Hearts2Hearts Lemon Tang POP UP in Taipei",
+   "description": "Hearts2Hearts ‘Lemon Tang – The 2nd Mini Album’ POP-UP IN TAIPEI 將於 2026 年 10 月 24 日至 11 月 8 日，在統一時代百貨台北店 B2 特賣場期間限定登場。活動現場規劃視覺形象、社群打卡、商品販售、結帳及互動體驗等五大區域，結合拍照、遊…",
+   "keywords": [
+    "統一時代百貨台北店",
+    "統一時代"
+   ],
+   "topics": [
+    "mall"
+   ],
+   "sources": [
+    "accupass"
+   ]
+  },
+  {
+   "id": "4d0c388624",
+   "title": "2026台北萌寵物用品展｜雙11寵物囤貨節11/6~11/9｜台北世貿一館",
+   "venue": "台北世貿一館(捷運101站5號出口)",
+   "address": "臺北市信義區信義路五段5號",
+   "city": "臺北市",
+   "district": "信義區",
+   "lat": 25.034038,
+   "lng": 121.562355,
+   "geo_precision": "venue",
+   "start": "2026-11-06",
+   "end": "2026-11-09",
+   "price": {
+    "text": "未提供票價資訊",
+    "free": null,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.accupass.com/event/2609240757531203965060",
+   "ticket_url": null,
+   "image": "https://static.accupass.com/eventbanner/2609240754391277726317_P520x260.jpg",
+   "organizer": "生動國際展覽事業股份有限公司",
+   "description": "2026台北萌寵物用品展，11/06–11/09於台北世貿一館盛大登場！四天限定「超越雙11囤貨節」，集結人氣寵物品牌與年度熱銷好物，從主食糧、零食、保健、用品到智慧寵物家電，吃、穿、用、玩一次備齊，展場限定優惠3折起，更有品牌快閃、新品首發、熱銷商品加價購，讓毛孩家長一次囤足全年所需！現場同步推出寵物鮮食手作、罐罐…",
+   "keywords": [
+    "臺北世界貿易中心展覽一館",
+    "世貿一館",
+    "世貿展覽一館",
+    "臺北世貿中心",
+    "臺北世界貿易中心"
+   ],
+   "topics": [
+    "mall"
+   ],
+   "sources": [
+    "accupass"
    ]
   },
   {
@@ -1619,6 +1889,76 @@
    "topics": [],
    "sources": [
     "culture_express"
+   ]
+  },
+  {
+   "id": "7722e42a68",
+   "title": "POPUPASIA 亞洲手創暨生活展",
+   "venue": "松山文創園區 倉庫區",
+   "address": "台北市信義區光復南路133號",
+   "city": "臺北市",
+   "district": "信義區",
+   "lat": 25.043723,
+   "lng": 121.560797,
+   "geo_precision": "venue",
+   "start": "2026-11-12",
+   "end": "2026-11-15",
+   "price": {
+    "text": "NT$300–500",
+    "free": false,
+    "min": 300,
+    "max": 500,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39904",
+   "ticket_url": "https://tour.ibon.com.tw/event/6a8be9cbd62ae759abc866d5",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/efcda464-ba49-461c-8662-a9521febfa88.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [
+    "松山文創園區",
+    "松菸",
+    "松山菸廠"
+   ],
+   "topics": [
+    "mall"
+   ],
+   "sources": [
+    "ibon"
+   ]
+  },
+  {
+   "id": "d2c8a2a7f3",
+   "title": "NATURE SHOW 自然展",
+   "venue": "臺北花博爭豔館（捷運圓山站旁）",
+   "address": "臺北市中山區圓山里玉門街1號",
+   "city": "臺北市",
+   "district": "中山區",
+   "lat": 25.069468,
+   "lng": 121.521244,
+   "geo_precision": "venue",
+   "start": "2026-11-14",
+   "end": "2026-11-15",
+   "price": {
+    "text": "NT$50–150",
+    "free": false,
+    "min": 50,
+    "max": 150,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39982",
+   "ticket_url": "https://tour.ibon.com.tw/event/6aab495309e2d143ca28d460",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/8a4a21f2-31f5-45b2-a7f2-413a93403e47.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [
+    "花博公園爭艷館",
+    "爭艷館",
+    "爭豔館"
+   ],
+   "topics": [],
+   "sources": [
+    "ibon"
    ]
   },
   {
@@ -2046,6 +2386,39 @@
    ]
   },
   {
+   "id": "3e44dcc347",
+   "title": "2026第47屆TECA台北國際音響大展",
+   "venue": "台北圓山大飯店1F-4F",
+   "address": "臺北市中山區中山北路四段1號",
+   "city": "臺北市",
+   "district": "中山區",
+   "lat": 25.078765,
+   "lng": 121.526206,
+   "geo_precision": "venue",
+   "start": "2026-11-19",
+   "end": "2026-11-22",
+   "price": {
+    "text": "NT$150–250",
+    "free": false,
+    "min": 150,
+    "max": 250,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39949",
+   "ticket_url": "https://tour.ibon.com.tw/event/6a9d02d6ae3f603f9fe70d93",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/23c97267-0279-4dc1-bd76-b7e6ed1075c7.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [
+    "台北圓山大飯店",
+    "圓山大飯店"
+   ],
+   "topics": [],
+   "sources": [
+    "ibon"
+   ]
+  },
+  {
    "id": "b2a79e929b",
    "title": "第47屆2026 TECA台北國際音響大展",
    "venue": "台北圓山大飯店 1-4樓",
@@ -2109,6 +2482,36 @@
    "topics": [],
    "sources": [
     "moc"
+   ]
+  },
+  {
+   "id": "be6d1e28ef",
+   "title": "【日本爆紅展覽首度來台】「恐怖心展．台北」",
+   "venue": "灰棚（近捷運中山站／雙連站）",
+   "address": "臺北市中山區中山北路二段59巷16號B1",
+   "city": "臺北市",
+   "district": "中山區",
+   "lat": 25.052889,
+   "lng": 121.519744,
+   "geo_precision": "venue",
+   "start": "2026-09-12",
+   "end": "2026-11-23",
+   "price": {
+    "text": "NT$350–450",
+    "free": false,
+    "min": 350,
+    "max": 450,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39876",
+   "ticket_url": "https://tour.ibon.com.tw/event/6a717ec64b7e1746a8befc7e",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/2fdfd297-a332-4eca-92f2-c7db1f90b164.jpeg",
+   "organizer": "",
+   "description": "",
+   "keywords": [],
+   "topics": [],
+   "sources": [
+    "ibon"
    ]
   },
   {
@@ -2387,6 +2790,40 @@
    "topics": [],
    "sources": [
     "moc"
+   ]
+  },
+  {
+   "id": "256ebfaab6",
+   "title": "極光創漫祭",
+   "venue": "南港展覽館二館1樓",
+   "address": "台北市南港區經貿二路2號",
+   "city": "臺北市",
+   "district": "南港區",
+   "lat": 25.054646,
+   "lng": 121.617291,
+   "geo_precision": "venue",
+   "start": "2026-12-05",
+   "end": "2026-12-06",
+   "price": {
+    "text": "NT$250–400",
+    "free": false,
+    "min": 250,
+    "max": 400,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39975",
+   "ticket_url": "https://tour.ibon.com.tw/event/6a82591335c1d20696f1a5a8",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/9940067a-c2dd-4f59-ab2c-56b671a485ac.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [
+    "南港展覽館",
+    "南港展覽一館",
+    "南港展覽二館"
+   ],
+   "topics": [],
+   "sources": [
+    "ibon"
    ]
   },
   {
@@ -2994,6 +3431,36 @@
    "topics": [],
    "sources": [
     "culture_express"
+   ]
+  },
+  {
+   "id": "65a8bfc8b1",
+   "title": "AAWA亞洲動物福利協會【亞洲寵物博物館-小獸醫生命教育】",
+   "venue": "台北市內湖區舊宗路一段30巷13號2樓，全國動物醫院台北分院樓上，近潭美國小",
+   "address": "台北市內湖區舊宗路一段30巷13號2樓",
+   "city": "臺北市",
+   "district": "內湖區",
+   "lat": 25.0697,
+   "lng": 121.588,
+   "geo_precision": "district",
+   "start": "2023-09-01",
+   "end": "2026-12-31",
+   "price": {
+    "text": "NT$100–250",
+    "free": false,
+    "min": 100,
+    "max": 250,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/37926",
+   "ticket_url": "https://tour.ibon.com.tw/event/64b7a894770c7f43ceaa021a",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/66c1510c-8a9d-4430-9d9f-699d49cbb28c.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [],
+   "topics": [],
+   "sources": [
+    "ibon"
    ]
   },
   {
@@ -3950,6 +4417,43 @@
    ]
   },
   {
+   "id": "3d373cb2ff",
+   "title": "海之召喚海洋生靈祈願旅程．台北三創",
+   "venue": "台北三創",
+   "address": "台北市中正區市民大道三段2號3樓",
+   "city": "臺北市",
+   "district": "中正區",
+   "lat": 25.045112,
+   "lng": 121.531149,
+   "geo_precision": "venue",
+   "start": "2026-05-28",
+   "end": "2026-12-31",
+   "price": {
+    "text": "NT$550–1100",
+    "free": false,
+    "min": 550,
+    "max": 1100,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39973",
+   "ticket_url": "https://tour.ibon.com.tw/event/6aa8eaa9acf21524ce1cd6b3",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/57a5bf60-c4f9-4ea4-835f-0108e9139ce2.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [
+    "三創生活園區",
+    "三創園區",
+    "台北三創",
+    "臺北三創"
+   ],
+   "topics": [
+    "mall"
+   ],
+   "sources": [
+    "ibon"
+   ]
+  },
+  {
    "id": "2dc35251e1",
    "title": "齊柏林空間年度特展《Re見：齊柏林俯瞰台灣》",
    "venue": "得忌利士洋行",
@@ -4111,6 +4615,36 @@
    "topics": [],
    "sources": [
     "culture_express"
+   ]
+  },
+  {
+   "id": "b87d26c67d",
+   "title": "威剛黑膠音樂博物館典藏展-重返類比",
+   "venue": "威剛科技總部大樓3樓",
+   "address": "台北市內湖區潭美街533號三樓",
+   "city": "臺北市",
+   "district": "內湖區",
+   "lat": 25.0697,
+   "lng": 121.588,
+   "geo_precision": "district",
+   "start": "2026-09-01",
+   "end": "2026-12-31",
+   "price": {
+    "text": "NT$125–250",
+    "free": false,
+    "min": 125,
+    "max": 250,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39908",
+   "ticket_url": "https://tour.ibon.com.tw/event/6a743d6265320e5cc9a1619c",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/1902e7b0-b5c6-4913-a28d-e2e26f1ce9f2.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [],
+   "topics": [],
+   "sources": [
+    "ibon"
    ]
   },
   {
@@ -4703,6 +5237,41 @@
    ]
   },
   {
+   "id": "0ea99036b6",
+   "title": "恐龍大復活 關渡探險樂園",
+   "venue": "關渡碼頭貨櫃市集",
+   "address": "台北市關渡碼頭貨櫃市集",
+   "city": "臺北市",
+   "district": "北投區",
+   "lat": 25.120745,
+   "lng": 121.461438,
+   "geo_precision": "venue",
+   "start": "2026-01-17",
+   "end": "2027-02-21",
+   "price": {
+    "text": "NT$220–700",
+    "free": false,
+    "min": 220,
+    "max": 700,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39341",
+   "ticket_url": "https://tour.ibon.com.tw/event/6938c94387d2e415c159ea86",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/2c67f9bd-84d3-4c11-93c1-1fee3836d6fb.jpg",
+   "organizer": "",
+   "description": "",
+   "keywords": [
+    "關渡碼頭",
+    "關渡碼頭貨櫃市集"
+   ],
+   "topics": [
+    "science"
+   ],
+   "sources": [
+    "ibon"
+   ]
+  },
+  {
    "id": "bbe009382a",
    "title": "I Spy Love，發現愛",
    "venue": "臺北市立美術館 兒童藝術教育中心",
@@ -4999,9 +5568,9 @@
    ]
   },
   {
-   "id": "f2b8e47183",
+   "id": "fd07535bd3",
    "title": "寶可夢 × 工藝展：美與匠心的綺趣相遇",
-   "venue": "松山文創園區 5號倉庫",
+   "venue": "松山文創園區-五號倉庫",
    "address": "臺北市信義區光復南路133號",
    "city": "臺北市",
    "district": "信義區",
@@ -5011,15 +5580,15 @@
    "start": "2027-02-08",
    "end": "2027-05-02",
    "price": {
-    "text": "需購票，請見官網",
+    "text": "NT$350",
     "free": false,
-    "min": null,
-    "max": null,
+    "min": 350,
+    "max": 350,
     "tickets": []
    },
-   "url": "https://www.opentix.life/program/2105226400121249793",
-   "ticket_url": null,
-   "image": null,
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40002",
+   "ticket_url": "https://tour.ibon.com.tw/event/6ac35df0ca3e24311162acb7",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/7049b22f-e00c-4552-9039-a1e4328006a3.jpg",
    "organizer": "",
    "description": "",
    "keywords": [
@@ -5029,6 +5598,7 @@
    ],
    "topics": [],
    "sources": [
+    "ibon",
     "moc"
    ]
   },
@@ -5216,6 +5786,39 @@
    ]
   },
   {
+   "id": "73670a6593",
+   "title": "唱 我們的歌 流行音樂故事展",
+   "venue": "臺北流行音樂中心文化館",
+   "address": "台北市臺北流行音樂中心文化館",
+   "city": "臺北市",
+   "district": "南港區",
+   "lat": 25.051634,
+   "lng": 121.599389,
+   "geo_precision": "venue",
+   "start": "2023-01-01",
+   "end": "2030-12-31",
+   "price": {
+    "text": "NT$320–1000",
+    "free": false,
+    "min": 320,
+    "max": 1000,
+    "tickets": []
+   },
+   "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/37600",
+   "ticket_url": "https://tour.ibon.com.tw/event/639a87c55791ae161448c23d",
+   "image": "https://tour.ibon.com.tw/allticket-prod/media/e0ad4bd9-b773-49fc-a82b-a6f4fac996dc.jpg",
+   "organizer": "文化部",
+   "description": "",
+   "keywords": [
+    "臺北流行音樂中心"
+   ],
+   "topics": [],
+   "sources": [
+    "ibon",
+    "moc"
+   ]
+  },
+  {
    "id": "40ef0f216b",
    "title": "在這裡，與大家相遇—國立歷史博物館常設展",
    "venue": "國立歷史博物館3樓",
@@ -5250,38 +5853,6 @@
    "topics": [],
    "sources": [
     "culture_express",
-    "moc"
-   ]
-  },
-  {
-   "id": "1768445811",
-   "title": "2026【唱 我們的歌 流行音樂故事展】",
-   "venue": "臺北流行音樂中心文化館",
-   "address": "臺北市南港區忠孝東路七段99號",
-   "city": "臺北市",
-   "district": "南港區",
-   "lat": 25.051634,
-   "lng": 121.599389,
-   "geo_precision": "venue",
-   "start": "2026-01-01",
-   "end": "2030-12-31",
-   "price": {
-    "text": "免費（非售票活動）",
-    "free": true,
-    "min": 0,
-    "max": 0,
-    "tickets": []
-   },
-   "url": "https://www.opentix.life/program/1997861121855938561",
-   "ticket_url": null,
-   "image": null,
-   "organizer": "文化部",
-   "description": "",
-   "keywords": [
-    "臺北流行音樂中心"
-   ],
-   "topics": [],
-   "sources": [
     "moc"
    ]
   },

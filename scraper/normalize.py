@@ -249,12 +249,16 @@ _MALL_WORDS = re.compile(
 )
 
 
+# 快閃展、商品展（不論在哪裡舉辦）
+_POPUP_WORDS = re.compile(r"(快閃|POP[ -]?UP(?![ -]?BOOK)|商品展|用品展|期間限定)", re.IGNORECASE)
+
+
 def detect_topics(title: str, venue: str = "", organizer: str = "") -> list[str]:
     topics = []
     place = to_tai(f"{venue} {organizer}")
     if any(v in place for v in _SCIENCE_VENUES) or _SCIENCE_WORDS.search(to_tai(title)):
         topics.append("science")
-    if _MALL_WORDS.search(to_tai(venue)):
+    if _MALL_WORDS.search(to_tai(venue)) or _POPUP_WORDS.search(to_tai(title)):
         topics.append("mall")
     return topics
 

@@ -24,6 +24,12 @@
 | [基隆美術館](https://kmoa.klcg.gov.tw/) | 當期展覽 | 從官網列表頁與展覽頁讀取檔期、地點、費用 |
 | [國立海洋科技博物館](https://www.nmmst.gov.tw/) | 當期特展 | 從官網列表頁讀取展期 |
 
+| [新光三越](https://www.skm.com.tw/) | 「文藝」「展售」活動 | 北北基桃分店的藝術展、快閃店；以標題排除促銷訊息 |
+| [ibon售票](https://ticket.ibon.com.tw/) | 「展覽」類別 | 需購票的特展、商品展、快閃展；地址與票價取自售票頁；排除見面會、博物館門票等 |
+| [Accupass 活動通](https://www.accupass.com/) | 搜尋「快閃」 | 快閃展、商品展；Accupass 沒有提供票價 |
+
+百貨公司方面，SOGO 官網的活動頁禁止自動抓取（robots.txt），遠東百貨、誠品、KKTIX 等有機器人驗證，皆不抓取；這些地點的展覽若出現在 ibon、Accupass 或文化局資料中仍會收錄。
+
 桃園市目前沒有可用的展覽開放資料（桃園市立美術館官網有機器人驗證，不抓取），桃園的展覽主要來自文化部資料。
 
 同一檔展覽出現在多個來源時會自動合併（標題相同或互相包含、地點相近、展期重疊），並以場館官方資料優先。
@@ -110,7 +116,7 @@ tests/                 單元測試
 
 `aliases` 是會出現在來源「地點名稱」中的字串；`street_keys` 是「路段＋門牌」，用來比對地址；`city` 省略時視為臺北市。
 
-**調整主題的判斷**：「科學・科技」編輯 `scraper/normalize.py` 的 `_SCIENCE_VENUES`（場館）與 `_SCIENCE_WORDS`（標題關鍵字）；「百貨・商品展」編輯 `_MALL_WORDS`（場館名稱）。沒有任何展覽的主題不會出現在選單中。
+**調整主題的判斷**：「科學・科技」編輯 `scraper/normalize.py` 的 `_SCIENCE_VENUES`（場館）與 `_SCIENCE_WORDS`（標題關鍵字）；「百貨・快閃・商品展」編輯 `_MALL_WORDS`（場館名稱）與 `_POPUP_WORDS`（標題關鍵字）。沒有任何展覽的主題不會出現在選單中。
 
 **新增資料來源**：在 `scraper/sources/` 新增模組，提供 `SOURCE_ID`、`SOURCE_NAME`、`SOURCE_URL` 與回傳共用格式的 `collect()`（欄位見 `scraper/sources/__init__.py`），再加入 `SOURCES` 清單。
 

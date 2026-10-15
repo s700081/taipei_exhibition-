@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import gzip
 import json
 import ssl
 import time
@@ -30,7 +31,9 @@ def request(url: str, *, data: bytes | None = None, headers: dict | None = None,
         try:
             req = urllib.request.Request(url, data=data, headers=req_headers)
             with urllib.request.urlopen(req, timeout=timeout, context=SSL_CONTEXT) as resp:
-                return resp.read()
+                body = resp.read()
+            # 部分網站不論是否要求都回傳 gzip 壓縮內容
+            return gzip.decompress(body) if body[:2] == b"\x1f\x8b" else body
         except urllib.error.HTTPError as e:
             last_error = e
             if e.code not in (429, 500, 502, 503, 504):
