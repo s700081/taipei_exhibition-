@@ -116,6 +116,7 @@ def build_record(item: dict, detail: dict | None, tickets: tuple[int, int]) -> d
 
     return {
         "source": SOURCE_ID,
+        "city": "臺北市",
         "source_id": (re.search(r"a=(\d+)", item["href"]) or [None, item["title"]])[1],
         "title": item["title"],
         "venue": f"{VENUE} {place}".strip(),

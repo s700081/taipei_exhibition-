@@ -1,7 +1,7 @@
 """
 把展覽地點轉成經緯度。依序嘗試：
   1. 內建場館對照表 scraper/data/venues.json（人工確認過，最可靠）
-  2. 來源資料本身的座標（需落在臺北市範圍內；部分來源座標只精確到行政區附近）
+  2. 來源資料本身的座標（需落在北北基桃範圍內；部分來源座標只精確到行政區附近）
   3. OpenStreetMap Nominatim 以場館名稱查詢（結果會快取）
   4. Nominatim 以「路段」查詢（概略位置）
   5. 行政區中心點（概略位置）
@@ -18,9 +18,10 @@ from pathlib import Path
 
 from . import fetch
 from .normalize import (
+    CITIES,
     DISTRICT_CENTROIDS,
     find_district,
-    in_taipei_bbox,
+    in_region_bbox,
     normalize_address,
     road_name,
     street_key,
@@ -28,7 +29,7 @@ from .normalize import (
 )
 
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
-TAIPEI_VIEWBOX = "121.45,25.22,121.67,24.96"
+REGION_VIEWBOX = "120.95,25.35,122.05,24.55"  # 北北基桃：經度最小,緯度最大,經度最大,緯度最小
 NEGATIVE_CACHE_DAYS = 30
 
 # 場館名稱中常見、但對查詢沒有幫助的尾巴
@@ -77,54 +78,57 @@ class Geocoder:
     # ---------------------------------------------------------------- public
 
     def locate(self, venue: str, address: str, lat: float | None = None,
-               lng: float | None = None) -> dict:
-        district = find_district(to_tai(address), to_tai(venue))
+               lng: float | None = None, city: str = "臺北市") -> dict:
+        district = find_district(to_tai(address), to_tai(venue), city=city)
 
-        hit = self.match_venue(venue, address)
+        hit = self.match_venue(venue, address, city)
         if hit:
             result = self._result(hit["lat"], hit["lng"], "venue", district or hit.get("district"))
             result["keywords"] = [hit["name"], *hit.get("aliases", [])]
             return result
 
-        if in_taipei_bbox(lat, lng):
+        if in_region_bbox(lat, lng):
             return self._result(lat, lng, "source", district)
 
         for query in self._venue_queries(venue):
-            found = self._nominatim({"q": query}, check_name=query)
+            found = self._nominatim({"q": query}, city, check_name=query)
             if found:
                 return self._result(found[0], found[1], "venue", district)
 
         key = street_key(address)
         if key:
-            found = self._nominatim({"q": f"{key}, 臺北市"}, check_name=None, require_house=True)
+            found = self._nominatim({"q": f"{key}, {city}"}, city, check_name=None, require_house=True)
             if found:
                 return self._result(found[0], found[1], "address", district)
 
         road = road_name(address)
         if road:
-            found = self._nominatim({"street": road, "city": "臺北市", "country": "臺灣"}, check_name=None)
+            found = self._nominatim({"street": road, "city": city, "country": "臺灣"}, city, check_name=None)
             if found:
                 return self._result(found[0], found[1], "road", district)
 
-        if district:
-            c_lat, c_lng = DISTRICT_CENTROIDS[district]
-            return self._result(c_lat, c_lng, "district", district)
+        centroid = DISTRICT_CENTROIDS.get(city, {}).get(district)
+        if centroid:
+            return self._result(centroid[0], centroid[1], "district", district)
         return self._result(None, None, "none", district)
 
-    def match_venue(self, venue: str, address: str) -> dict | None:
+    def match_venue(self, venue: str, address: str, city: str = "臺北市") -> dict | None:
+        """在場館對照表中找同一縣市的場館（以名稱／別名，或「路段＋門牌」比對）。"""
+        def same_city(v: dict) -> bool:
+            return v.get("city", "臺北市") == city
+
         venue_n = to_tai(venue).replace(" ", "")
         for alias, v in self._aliases:
-            if len(alias) >= 2 and alias in venue_n:
+            if len(alias) >= 2 and alias in venue_n and same_city(v):
                 return v
-        # 以門牌比對（例如「南海路49號」）
         key = street_key(address)
         if key:
             for v in self.venues:
-                if key in (v.get("street_keys") or []):
+                if key in (v.get("street_keys") or []) and same_city(v):
                     return v
         addr_n = normalize_address(address)
         for alias, v in self._aliases:
-            if len(alias) >= 4 and alias in addr_n:
+            if len(alias) >= 4 and alias in addr_n and same_city(v):
                 return v
         return None
 
@@ -146,7 +150,7 @@ class Geocoder:
     @staticmethod
     def _venue_queries(venue: str) -> list[str]:
         venue = to_tai(venue).strip()
-        if not venue or venue in ("臺北市", "線上"):
+        if not venue or venue in CITIES or venue == "線上":
             return []
         cleaned = _VENUE_NOISE.sub(" ", venue)
         parts = [p.strip() for p in re.split(r"[-－–—_/／|｜,，、()（）\s]+", cleaned) if p.strip()]
@@ -157,14 +161,16 @@ class Geocoder:
             if len(cand) < 4 or cand in candidates or re.fullmatch(r"[\d\W]+", cand):
                 continue
             # 「大安區（臺北市）」「臺北場」這類只有地名的字串不是場館
-            if re.fullmatch(r"(臺北市?)?.?(場|館|店|站)", cand) or find_district(cand):
+            if re.fullmatch(r"((臺北|新北|基隆|桃園)市?)?.?(場|館|店|站)", cand) or find_district(cand):
                 continue
             candidates.append(cand)
         return candidates[:3]
 
-    def _nominatim(self, params: dict, *, check_name: str | None,
+    def _nominatim(self, params: dict, city: str, *, check_name: str | None,
                    require_house: bool = False) -> tuple[float, float] | None:
         cache_key = "nominatim:" + json.dumps(params, ensure_ascii=False, sort_keys=True)
+        if city != "臺北市":  # 臺北市沿用既有的快取鍵
+            cache_key += f"|{city}"
         cached = self.cache.get(cache_key)
         if cached is not None:
             if cached.get("lat") is not None:
@@ -181,7 +187,7 @@ class Geocoder:
             "format": "jsonv2",
             "limit": 3,
             "countrycodes": "tw",
-            "viewbox": TAIPEI_VIEWBOX,
+            "viewbox": REGION_VIEWBOX,
             "bounded": 1,
             "addressdetails": 1,
         }
@@ -201,7 +207,10 @@ class Geocoder:
         found = None
         for r in results or []:
             lat, lng = float(r["lat"]), float(r["lon"])
-            if not in_taipei_bbox(lat, lng):
+            if not in_region_bbox(lat, lng):
+                continue
+            # 結果必須位於同一縣市（避免同名場館或道路落在別的縣市）
+            if city not in json.dumps(r.get("address") or {}, ensure_ascii=False):
                 continue
             if r.get("category") in ("boundary", "place") and r.get("type") != "house":
                 continue  # 行政區、里、聚落等範圍，不是具體地點

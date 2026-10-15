@@ -38,6 +38,7 @@ def parse(items: list[dict]) -> list[dict]:
         image = clean_text(item.get("NowPlayImg")).replace("\\", "/")
         records.append({
             "source": SOURCE_ID,
+            "city": "臺北市",
             "source_id": str(item.get("ExID")),
             "title": title,
             "venue": f"{VENUE} {room}",

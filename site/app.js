@@ -2,11 +2,10 @@
   "use strict";
 
   const DATA_URL = "data/exhibitions.json";
-  const TAIPEI_CENTER = [25.05, 121.54];
+  const MAP_CENTER = [25.03, 121.45];
   const DAY_MS = 86400000;
   const ENDING_SOON_DAYS = 14;
-  const DISTRICTS = ["中正區", "大同區", "中山區", "松山區", "大安區", "萬華區",
-    "信義區", "士林區", "北投區", "內湖區", "南港區", "文山區"];
+  const CITIES = ["臺北市", "新北市", "基隆市", "桃園市"];
   const WEEKDAYS = ["日", "一", "二", "三", "四", "五", "六"];
   const APPROX = new Set(["road", "district", "none"]);
 
@@ -73,6 +72,7 @@
     when: "all",
     price: "all",
     topic: "all",
+    city: "all",
     district: "all",
     sort: "ending",
     activeId: null,
@@ -81,7 +81,11 @@
   function decorate(ex) {
     const s = dayNum(ex.start);
     const e = dayNum(ex.end);
-    const out = { ...ex, s, e, search: norm([ex.title, ex.venue, ex.organizer, ex.district, ex.address, ...(ex.keywords || [])].join(" ")) };
+    const city = ex.city || "臺北市";
+    const out = {
+      ...ex, city, s, e,
+      search: norm([ex.title, ex.venue, ex.organizer, city, ex.district, ex.address, ...(ex.keywords || [])].join(" ")),
+    };
     if (s != null && s > TODAY) {
       out.phase = "upcoming";
       out.daysUntil = s - TODAY;
@@ -127,7 +131,8 @@
   function matches(ex) {
     if (ex.e != null && ex.e < TODAY) return false;
     if (state.q && !state.q.split(/\s+/).every((w) => ex.search.includes(norm(w)))) return false;
-    if (state.district !== "all" && ex.district !== state.district) return false;
+    if (state.city !== "all" && ex.city !== state.city) return false;
+    if (state.district !== "all" && `${ex.city}|${ex.district}` !== state.district) return false;
     if (state.topic !== "all" && !(ex.topics || []).includes(state.topic)) return false;
     if (state.price === "free" && !(ex.price && ex.price.free === true)) return false;
     if (state.price === "paid" && !(ex.price && ex.price.free === false)) return false;
@@ -167,7 +172,7 @@
   const keyById = new Map();
 
   function initMap() {
-    map = L.map("map", { zoomControl: true, scrollWheelZoom: true }).setView(TAIPEI_CENTER, 12);
+    map = L.map("map", { zoomControl: true, scrollWheelZoom: true }).setView(MAP_CENTER, 11);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -343,7 +348,7 @@
       titleEl.textContent = ex.title;
     }
 
-    venue.textContent = [ex.venue, ex.district].filter(Boolean).join("・");
+    venue.textContent = [ex.venue, `${ex.city}${ex.district || ""}`].filter(Boolean).join("・");
     if (APPROX.has(ex.geo_precision)) {
       const approx = document.createElement("span");
       approx.className = "approx";
@@ -478,6 +483,15 @@
       $("#when").querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c === btn)));
       apply();
     });
+    $("#city")?.addEventListener("change", (e) => {
+      // 換縣市時重設行政區，並把地圖縮放到該縣市的展覽
+      state.city = e.target.value;
+      state.district = "all";
+      fillDistricts(current());
+      needsFit = true;
+      apply();
+      fitAll();
+    });
     for (const id of ["topic", "price", "district", "sort"]) {
       $(`#${id}`)?.addEventListener("change", (e) => {
         state[id] = e.target.value;
@@ -490,20 +504,48 @@
     narrowQuery.addEventListener("change", applyView);
   }
 
-  function fillDistricts(list) {
+  // 尚未結束的展覽（用於選單上的檔數）
+  const current = () => state.all.filter((ex) => ex.e == null || ex.e >= TODAY);
+
+  function option(value, text) {
+    const opt = document.createElement("option");
+    opt.value = value;
+    opt.textContent = text;
+    return opt;
+  }
+
+  function fillCities(list) {
+    const select = $("#city");
+    if (!select) return;
     const counts = new Map();
-    for (const ex of list) {
-      if (ex.district) counts.set(ex.district, (counts.get(ex.district) || 0) + 1);
+    for (const ex of list) counts.set(ex.city, (counts.get(ex.city) || 0) + 1);
+    select.replaceChildren(option("all", `所有縣市（${list.length}）`));
+    for (const c of CITIES) {
+      if (counts.has(c)) select.append(option(c, `${c}（${counts.get(c)}）`));
     }
+  }
+
+  // 行政區選單：選定縣市時只列該縣市；未選時依縣市分組。值為「縣市|行政區」
+  function fillDistricts(list) {
     const select = $("#district");
     if (!select) return;
-    for (const d of DISTRICTS) {
-      if (!counts.has(d)) continue;
-      const opt = document.createElement("option");
-      opt.value = d;
-      opt.textContent = `${d}（${counts.get(d)}）`;
-      select.append(opt);
+    const counts = new Map();
+    for (const ex of list) {
+      if (!ex.district || (state.city !== "all" && ex.city !== state.city)) continue;
+      const key = `${ex.city}|${ex.district}`;
+      counts.set(key, (counts.get(key) || 0) + 1);
     }
+    select.replaceChildren(option("all", "所有行政區"));
+    for (const c of CITIES) {
+      const keys = [...counts.keys()].filter((k) => k.startsWith(`${c}|`))
+        .sort((a, b) => counts.get(b) - counts.get(a) || a.localeCompare(b, "zh-Hant"));
+      if (!keys.length) continue;
+      const parent = state.city === "all" ? document.createElement("optgroup") : select;
+      if (parent !== select) parent.label = c;
+      for (const k of keys) parent.append(option(k, `${k.split("|")[1]}（${counts.get(k)}）`));
+      if (parent !== select) select.append(parent);
+    }
+    select.value = state.district;
   }
 
   function renderMeta(data) {
@@ -548,7 +590,8 @@
     }
     state.all = (data.exhibitions || []).map(decorate);
     renderMeta(data);
-    fillDistricts(state.all);
+    fillCities(current());
+    fillDistricts(current());
     const list = apply();
 
     fitAll();

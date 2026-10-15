@@ -1,5 +1,5 @@
 """
-抓取臺北市近期展覽並輸出 site/data/exhibitions.json。
+抓取北北基桃（臺北市、新北市、基隆市、桃園市）近期展覽並輸出 site/data/exhibitions.json。
 
 用法：
   python -m scraper.main                  # 一般執行
@@ -17,7 +17,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from .geocode import Geocoder
-from .normalize import detect_topics, is_taipei, now_taipei, title_key, to_tai
+from .normalize import CITIES, detect_city, detect_topics, now_taipei, title_key, to_tai
 from .sources import SOURCES
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -76,6 +76,8 @@ def is_duplicate(a: dict, b: dict) -> bool:
     """
     if not (titles_match(a["title"], b["title"]) and dates_overlap(a, b)):
         return False
+    if a.get("city") != b.get("city"):
+        return False
     if a["precision"] in APPROXIMATE or b["precision"] in APPROXIMATE:
         if a.get("district") and a.get("district") == b.get("district"):
             return True
@@ -114,6 +116,7 @@ def to_output(rec: dict) -> dict:
         "title": rec["title"],
         "venue": rec.get("venue") or "",
         "address": rec.get("address") or "",
+        "city": rec.get("city"),
         "district": rec.get("district"),
         "lat": rec["lat"],
         "lng": rec["lng"],
@@ -174,11 +177,15 @@ def run(output: Path, days_ahead: int, network_geocode: bool) -> int:
                                   "ok": False, "count": len(kept), "error": str(e)[:200]})
             continue
 
-        taipei = [r for r in items if is_taipei(r["address"], r["venue"], r["lat"], r["lng"])]
-        recent = [r for r in taipei if in_window(r, today, days_ahead)]
-        print(f"[{src.SOURCE_ID}] 共 {len(items)} 筆，臺北市 {len(taipei)} 筆，近期 {len(recent)} 筆")
+        # 來源可直接指定 city（單一縣市的來源），否則從地址判斷
+        for r in items:
+            r["city"] = r.get("city") or detect_city(r["address"], r["venue"], r["lat"], r["lng"])
+        in_region = [r for r in items if r["city"] in CITIES]
+        recent = [r for r in in_region if in_window(r, today, days_ahead)]
+        by_city = {c: sum(1 for r in recent if r["city"] == c) for c in CITIES}
+        print(f"[{src.SOURCE_ID}] 共 {len(items)} 筆，北北基桃 {len(in_region)} 筆，近期 {len(recent)} 筆 {by_city}")
         for r in recent:
-            loc = geocoder.locate(r["venue"], r["address"], r["lat"], r["lng"])
+            loc = geocoder.locate(r["venue"], r["address"], r["lat"], r["lng"], r["city"])
             r.update(loc)
         records.extend(recent)
         source_status.append({"id": src.SOURCE_ID, "name": src.SOURCE_NAME, "url": src.SOURCE_URL,
@@ -211,10 +218,11 @@ def run(output: Path, days_ahead: int, network_geocode: bool) -> int:
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
-    precision = {}
+    precision, per_city = {}, {}
     for e in exhibitions:
         precision[e["geo_precision"]] = precision.get(e["geo_precision"], 0) + 1
-    print(f"輸出 {len(exhibitions)} 筆展覽 → {output}（定位精度：{precision}，"
+        per_city[e.get("city")] = per_city.get(e.get("city"), 0) + 1
+    print(f"輸出 {len(exhibitions)} 筆展覽 {per_city} → {output}（定位精度：{precision}，"
           f"Nominatim 查詢 {geocoder.requests_made} 次）")
     return 0
 

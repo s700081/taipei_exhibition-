@@ -3,35 +3,36 @@
 from __future__ import annotations
 
 import html
+import json
 import re
 import unicodedata
 from datetime import date, datetime
+from pathlib import Path
 
-TAIPEI_DISTRICTS = (
-    "中正區", "大同區", "中山區", "松山區", "大安區", "萬華區",
-    "信義區", "士林區", "北投區", "內湖區", "南港區", "文山區",
+# 收錄的縣市（順序即網站上的排列順序）
+CITIES = ("臺北市", "新北市", "基隆市", "桃園市")
+
+# 各縣市的行政區與中心點（找不到精確座標時的概略位置），資料在 scraper/data/districts.json
+_DISTRICT_DATA: dict[str, dict[str, list[float] | None]] = json.loads(
+    (Path(__file__).resolve().parent / "data" / "districts.json").read_text(encoding="utf-8")
 )
-# 基隆市也有這三個行政區，單憑區名無法判斷是否在臺北市
-AMBIGUOUS_DISTRICTS = ("中正區", "中山區", "信義區")
-
-# 行政區中心點，作為找不到精確座標時的概略位置
+CITY_DISTRICTS = {city: tuple(_DISTRICT_DATA[city]) for city in CITIES}
 DISTRICT_CENTROIDS = {
-    "中正區": (25.0324, 121.5199),
-    "大同區": (25.0634, 121.5130),
-    "中山區": (25.0685, 121.5333),
-    "松山區": (25.0598, 121.5577),
-    "大安區": (25.0264, 121.5434),
-    "萬華區": (25.0286, 121.4980),
-    "信義區": (25.0330, 121.5680),
-    "士林區": (25.0927, 121.5250),
-    "北投區": (25.1321, 121.5010),
-    "內湖區": (25.0697, 121.5880),
-    "南港區": (25.0548, 121.6066),
-    "文山區": (24.9897, 121.5703),
+    city: {d: tuple(v) for d, v in _DISTRICT_DATA[city].items() if v} for city in CITIES
 }
+TAIPEI_DISTRICTS = CITY_DISTRICTS["臺北市"]
+
+# 舊縣市名稱
+_OLD_CITY_NAMES = {"臺北縣": "新北市", "桃園縣": "桃園市"}
+# 其他縣市（出現在地址開頭就不收錄）
+_OTHER_CITIES = re.compile(
+    r"^(臺中|臺南|高雄|新竹|苗栗|彰化|南投|雲林|嘉義|屏東|宜蘭|花蓮|臺東|澎湖|金門|連江)"
+)
 
 # 臺北市的大致範圍（經度上限可排除基隆市）
 TAIPEI_BBOX = (24.96, 25.22, 121.45, 121.67)  # lat_min, lat_max, lng_min, lng_max
+# 北北基桃的大致範圍，用來檢查來源座標是否合理
+REGION_BBOX = (24.55, 25.35, 120.95, 122.05)
 
 _FULLWIDTH = str.maketrans(
     "０１２３４５６７８９ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ"
@@ -113,41 +114,71 @@ def road_name(address: str) -> str | None:
     return m.group(1) if m else None
 
 
-def in_taipei_bbox(lat: float | None, lng: float | None) -> bool:
+def _in_bbox(bbox, lat: float | None, lng: float | None) -> bool:
     if lat is None or lng is None:
         return False
-    lat_min, lat_max, lng_min, lng_max = TAIPEI_BBOX
+    lat_min, lat_max, lng_min, lng_max = bbox
     return lat_min <= lat <= lat_max and lng_min <= lng <= lng_max
 
 
-def find_district(*texts: str) -> str | None:
+def in_taipei_bbox(lat: float | None, lng: float | None) -> bool:
+    return _in_bbox(TAIPEI_BBOX, lat, lng)
+
+
+def in_region_bbox(lat: float | None, lng: float | None) -> bool:
+    return _in_bbox(REGION_BBOX, lat, lng)
+
+
+def find_district(*texts: str, city: str | None = None) -> str | None:
+    """在文字中找行政區名稱；指定 city 時只找該縣市的行政區。"""
+    cities = [city] if city in CITY_DISTRICTS else list(CITIES)
     for text in texts:
         if not text:
             continue
-        for district in TAIPEI_DISTRICTS:
-            if district in text:
-                return district
+        for c in cities:
+            for district in CITY_DISTRICTS[c]:
+                if district in text:
+                    return district
+    return None
+
+
+def detect_city(address: str, venue: str = "", lat: float | None = None,
+                lng: float | None = None) -> str | None:
+    """
+    判斷地點位於哪個收錄的縣市（臺北市、新北市、基隆市、桃園市），都不是則回傳 None。
+    先看地址中的縣市名稱；只有行政區名稱時依區名判斷，臺北市與基隆市都有的
+    中正區、中山區、信義區再用座標區分。
+    """
+    addr = to_tai(clean_text(address)).replace(" ", "")
+    venue = to_tai(clean_text(venue))
+    addr = re.sub(r"^\d{3,6}", "", addr)  # 郵遞區號
+    for old, new in _OLD_CITY_NAMES.items():
+        addr = addr.replace(old, new)
+    positions = [(addr.find(c), c) for c in CITIES if c in addr]
+    if positions:
+        return min(positions)[1]
+    if _OTHER_CITIES.search(addr):
+        return None
+
+    candidates = [c for c in CITIES if any(d in addr or d in venue for d in CITY_DISTRICTS[c])]
+    if len(candidates) == 1:
+        return candidates[0]
+    if len(candidates) > 1:
+        if in_taipei_bbox(lat, lng):
+            return "臺北市"
+        if lat is not None and lng is not None and lng > 121.67 and lat > 25.05:
+            return "基隆市"
+        return None
+    for c in CITIES:
+        if c in venue:
+            return c
     return None
 
 
 def is_taipei(address: str, venue: str = "", lat: float | None = None,
               lng: float | None = None) -> bool:
     """判斷是否位於臺北市（排除新北市、基隆市等）。"""
-    addr = to_tai(clean_text(address))
-    venue = to_tai(clean_text(venue))
-    if "臺北市" in addr:
-        return True
-    other_city = re.search(r"(新北市|基隆市|桃園市|臺中市|臺南市|高雄市|新竹|苗栗|彰化|南投|雲林|嘉義|屏東|宜蘭|花蓮|臺東|澎湖|金門|連江)", addr)
-    if other_city:
-        return False
-    district = find_district(addr, venue)
-    if district and district not in AMBIGUOUS_DISTRICTS:
-        return True
-    if district and in_taipei_bbox(lat, lng):
-        return True
-    if "臺北市" in venue:
-        return True
-    return False
+    return detect_city(address, venue, lat, lng) == "臺北市"
 
 
 def parse_date(value: str | None) -> date | None:

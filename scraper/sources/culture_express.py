@@ -62,6 +62,7 @@ def parse(items: list[dict]) -> list[dict]:
             lat = lng = None
         records.append({
             "source": SOURCE_ID,
+            "city": "臺北市",
             "source_id": item.get("ID"),
             "title": title,
             "venue": venue,

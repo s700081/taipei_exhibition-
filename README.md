@@ -1,11 +1,11 @@
-# 台北近期展覽地圖
+# 北北基桃近期展覽地圖
 
-每週自動抓取臺北市近期展覽，在地圖上標出展覽地點，並列出**票價**與**展期**。
+每週自動抓取**臺北市、新北市、基隆市、桃園市**的近期展覽，在地圖上標出展覽地點，並列出**票價**與**展期**。
 
 - 🗺 **地圖**：以 OpenStreetMap 顯示每個展覽場館，同一場館的多檔展覽會合併成一個標記
 - 🎟 **票價**：整理成「免費」或「NT$最低–最高」，並保留各票種明細與購票連結
 - 📅 **展期**：標示「展出中／剩 N 天／N 天後開展」，可篩選「本週末」「即將結束」「即將開展」
-- 🔎 搜尋展覽、場館（支援「北美館」「松菸」等簡稱）、依主題（如「科學・科技」）、行政區與費用篩選
+- 🔎 搜尋展覽、場館（支援「北美館」「松菸」等簡稱）、依縣市、行政區、主題（如「科學・科技」）與費用篩選
 - 🗂 電腦可切換「地圖＋列表／只看列表」（只看列表時卡片多欄排列並顯示簡介），手機可切換「列表／地圖」；會記住上次的選擇
 - 🔁 GitHub Actions 每週一凌晨自動更新資料並重新部署
 
@@ -14,7 +14,7 @@
 | 來源 | 內容 | 說明 |
 | --- | --- | --- |
 | [臺北市文化局 臺北文化快遞](https://cultureexpress.taipei/)（[臺北市資料大平臺](https://data.taipei/dataset/detail?id=9a7af75b-9abd-4ac1-b359-685fbd7dac23)） | 臺北市藝文活動（展覽類） | 主要來源，含座標、售票方式、圖片 |
-| [文化部文化資料開放服務網](https://cloud.culture.tw/) | 全國藝文活動（類別 6：展覽） | 篩選出位於臺北市的展覽 |
+| [文化部文化資料開放服務網](https://cloud.culture.tw/) | 全國藝文活動（類別 6：展覽） | 篩選出位於北北基桃的展覽 |
 | [臺北市立美術館](https://www.tfam.museum/) | 目前展覽、即將展出 | 官網公開的展覽資料 |
 | [國立臺灣科學教育館](https://www.ntsec.gov.tw/) | 特展、微型展 | 從官網列表頁與展覽頁讀取展期、展區；票價依官網常設展票價 |
 
@@ -28,7 +28,7 @@
 ```
 GitHub Actions（每週一 02:17 台北時間）
   └─ python -m scraper.main
-       ├─ 各來源抓資料 → 篩選臺北市、近期（已開展或 120 天內開展、尚未結束）
+       ├─ 各來源抓資料 → 判斷縣市，篩選北北基桃、近期（已開展或 120 天內開展、尚未結束）
        ├─ 整理票價、日期
        ├─ 定位：場館對照表 → 來源座標 → OpenStreetMap Nominatim → 行政區中心
        ├─ 合併重複展覽
@@ -78,11 +78,12 @@ python -m http.server 8000 -d site
 ```
 scraper/
   main.py              主流程：抓取、篩選、定位、合併、輸出
-  normalize.py         票價、日期、地址、行政區判斷
+  normalize.py         票價、日期、地址、縣市與行政區判斷
   geocode.py           地點定位（含 Nominatim 查詢與快取）
   fetch.py             HTTP 工具（只用標準函式庫）
   sources/             各資料來源（culture_express / moc / tfam / ntsec）
-  data/venues.json     臺北常見展覽場館座標與別名（人工確認）
+  data/venues.json     北北基桃常見展覽場館座標與別名（人工確認）
+  data/districts.json  各縣市行政區與中心點
   data/geocode_cache.json  Nominatim 查詢快取（自動產生）
 site/
   index.html, style.css, app.js   網站（Leaflet + OpenStreetMap）
@@ -96,10 +97,10 @@ tests/                 單元測試
 **某個場館的位置不對或常常只顯示「約略位置」**：在 `scraper/data/venues.json` 新增一筆：
 
 ```json
-{"name": "場館正式名稱", "aliases": ["簡稱"], "street_keys": ["南海路49號"], "lat": 25.0315, "lng": 121.5112, "district": "中正區"}
+{"name": "場館正式名稱", "aliases": ["簡稱"], "street_keys": ["南海路49號"], "lat": 25.0315, "lng": 121.5112, "district": "中正區", "city": "臺北市"}
 ```
 
-`aliases` 是會出現在來源「地點名稱」中的字串；`street_keys` 是「路段＋門牌」，用來比對地址。
+`aliases` 是會出現在來源「地點名稱」中的字串；`street_keys` 是「路段＋門牌」，用來比對地址；`city` 省略時視為臺北市。
 
 **調整「科學・科技」主題的判斷**：編輯 `scraper/normalize.py` 的 `_SCIENCE_VENUES`（場館）與 `_SCIENCE_WORDS`（標題關鍵字）。
 
