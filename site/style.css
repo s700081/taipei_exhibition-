@@ -252,14 +252,10 @@ button, input, select { font: inherit; color: inherit; }
 
 .title { margin: 0; font-size: 1rem; line-height: 1.4; }
 
-.title .locate {
-  all: unset;
-  cursor: pointer;
-  overflow-wrap: anywhere;
-}
-
-.title .locate:hover { color: var(--accent); text-decoration: underline; }
-.title .locate:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.title-link { color: inherit; text-decoration: none; overflow-wrap: anywhere; }
+.title-link::after { content: " ↗"; font-size: 0.8em; font-weight: 400; color: var(--muted); }
+.title-link:hover { color: var(--accent); text-decoration: underline; }
+.title-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
 .desc {
   display: none;
@@ -283,8 +279,10 @@ button, input, select { font: inherit; color: inherit; }
 .price.free { color: var(--free); font-weight: 600; }
 
 .links { margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.88rem; }
-.links a { color: var(--accent); text-decoration: none; font-weight: 600; }
-.links a:hover { text-decoration: underline; }
+.links a, .links .map-btn { color: var(--accent); text-decoration: none; font-weight: 600; }
+.links .map-btn { all: unset; color: var(--accent); font-weight: 600; cursor: pointer; }
+.links a:hover, .links .map-btn:hover { text-decoration: underline; }
+.links .map-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
 .site-footer {
   margin-top: 20px;
@@ -326,13 +324,9 @@ button, input, select { font: inherit; color: inherit; }
 .popup .addr { margin: 0 0 8px; color: #6b655d; }
 .popup ul { list-style: none; margin: 0; padding: 0; max-height: 240px; overflow-y: auto; }
 .popup li { padding: 6px 0; border-top: 1px solid #eee; }
-.popup li button {
-  all: unset;
-  cursor: pointer;
-  font-weight: 600;
-  color: #b4472f;
-}
-.popup li button:hover { text-decoration: underline; }
+.popup li a, .popup li strong { font-weight: 600; color: #b4472f; text-decoration: none; }
+.popup li strong { color: inherit; }
+.popup li a:hover { text-decoration: underline; }
 .popup .sub { display: block; color: #6b655d; }
 
 /* ---------- small screens ---------- */

@@ -184,12 +184,6 @@
       },
     });
     map.addLayer(cluster);
-
-    map.on("popupopen", (e) => {
-      e.popup.getElement().querySelectorAll("button[data-id]").forEach((btn) => {
-        btn.addEventListener("click", () => selectExhibition(btn.dataset.id, { fromMap: true }));
-      });
-    });
   }
 
   function placeKey(ex) {
@@ -202,11 +196,17 @@
     const approx = APPROX.has(first.geo_precision)
       ? '<p class="addr">⚠ 約略位置（僅知所在區域）</p>'
       : first.address ? `<p class="addr">${escapeHtml(first.address)}</p>` : "";
-    const items = group.map((ex) => `
+    const items = group.map((ex) => {
+      const href = safeUrl(ex.url);
+      const title = href
+        ? `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(ex.title)}</a>`
+        : `<strong>${escapeHtml(ex.title)}</strong>`;
+      return `
       <li>
-        <button type="button" data-id="${escapeHtml(ex.id)}">${escapeHtml(ex.title)}</button>
+        ${title}
         <span class="sub">${escapeHtml(formatRange(ex))}・${escapeHtml(priceText(ex.price).text)}</span>
-      </li>`).join("");
+      </li>`;
+    }).join("");
     return `<div class="popup"><h3>${escapeHtml(venue)}</h3>${approx}<ul>${items}</ul></div>`;
   }
 
@@ -302,10 +302,21 @@
       status.append(b);
     }
 
-    const locate = $(".locate", node);
-    locate.textContent = ex.title;
-    locate.title = ex.lat != null ? "在地圖上顯示" : "";
-    locate.addEventListener("click", () => selectExhibition(ex.id, { fromMap: false }));
+    // 點標題直接開啟展覽資訊
+    const titleEl = $(".title", node);
+    const infoUrl = safeUrl(ex.url);
+    if (infoUrl) {
+      const a = document.createElement("a");
+      a.className = "title-link";
+      a.href = infoUrl;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.title = "開啟展覽資訊（新分頁）";
+      a.textContent = ex.title;
+      titleEl.append(a);
+    } else {
+      titleEl.textContent = ex.title;
+    }
 
     const venue = $(".venue", node);
     venue.textContent = [ex.venue, ex.district].filter(Boolean).join("・");
@@ -335,7 +346,14 @@
       a.textContent = label;
       links.append(a);
     };
-    addLink(ex.url, "展覽資訊 ↗");
+    if (ex.lat != null) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "map-btn";
+      btn.textContent = "地圖位置";
+      btn.addEventListener("click", () => selectExhibition(ex.id));
+      links.append(btn);
+    }
     if (ex.ticket_url && ex.ticket_url !== ex.url) addLink(ex.ticket_url, "購票 ↗");
     if (ex.lat != null) {
       const q = APPROX.has(ex.geo_precision) ? `${ex.venue || ""} ${ex.address || ""}` : `${ex.lat},${ex.lng}`;
@@ -405,17 +423,11 @@
     applyView();
   }
 
-  function selectExhibition(id, { fromMap }) {
+  // 「地圖位置」：標示選取的卡片並在地圖上定位；地圖目前隱藏的話先切回有地圖的檢視
+  function selectExhibition(id) {
     state.activeId = id;
     cardById.forEach((card, cid) => card.classList.toggle("active", cid === id));
     history.replaceState(null, "", `#ex-${id}`);
-    if (fromMap) {
-      if (isNarrow()) setView("list");
-      const card = cardById.get(id);
-      if (card && card.isConnected) card.scrollIntoView({ behavior: "smooth", block: "center" });
-      return;
-    }
-    // 點標題＝在地圖上顯示；地圖目前隱藏的話先切回有地圖的檢視
     const mapHidden = currentView() === "list";
     if (mapHidden) setView(isNarrow() ? "map" : "split");
     setTimeout(() => focusOnMap(id), mapHidden ? 50 : 0);
