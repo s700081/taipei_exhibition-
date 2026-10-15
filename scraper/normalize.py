@@ -163,6 +163,59 @@ def parse_date(value: str | None) -> date | None:
         return None
 
 
+_ZH_DATE = re.compile(
+    r"(?P<y>\d{2,4})\s*[年./\-]\s*(?P<m>\d{1,2})\s*[月./\-]\s*(?P<d>\d{1,2})\s*日?"
+    r"(?:\s*[（(][一二三四五六日][)）])?"
+)
+
+
+def parse_zh_date_range(text: str | None) -> tuple[date | None, date | None]:
+    """
+    解析中文的展期文字，回傳 (開始, 結束)；年份可為西元或民國。
+      「2025 年 7 月 19 日至 2027 年 12 月 31 日」→ (2025-07-19, 2027-12-31)
+      「自2025年11月8日(六)起」→ (2025-11-08, None)   沒有結束日期
+      「即日起至116年4月30日」→ (None, 2027-04-30)
+    """
+    text = clean_text(text)
+    found = []
+    for m in _ZH_DATE.finditer(text):
+        y = int(m.group("y"))
+        if y < 1911:
+            y += 1911  # 民國年
+        try:
+            found.append((m, date(y, int(m.group("m")), int(m.group("d")))))
+        except ValueError:
+            continue
+    if not found:
+        return None, None
+    if len(found) >= 2:
+        return found[0][1], found[1][1]
+    m, d = found[0]
+    before, after = text[: m.start()], text[m.end(): m.end() + 3]
+    if re.search(r"(至|到|~|～|－|迄)\s*$", before) or "即日起" in before:
+        return None, d
+    if "起" in after:
+        return d, None
+    return d, d
+
+
+# 標記「科學・科技」主題的關鍵字（比對標題、場館與主辦單位）
+_SCIENCE_VENUES = ("科學教育館", "科教館", "天文科學教育館", "天文館")
+_SCIENCE_WORDS = re.compile(
+    r"(科學|科技|科普|化學|物理|數學|天文|太空|宇宙|星際|分子|原子|半導體|人工智慧|"
+    r"\bAI\b|機器人|程式設計|工程|生物多樣性|生命科學|人體|醫學|演化|恐龍|化石|地球科學|氣候變遷|STEAM|實驗)",
+    re.IGNORECASE,
+)
+
+
+def detect_topics(title: str, venue: str = "", organizer: str = "") -> list[str]:
+    topics = []
+    place = to_tai(f"{venue} {organizer}")
+    if any(v in place for v in _SCIENCE_VENUES) or _SCIENCE_WORDS.search(to_tai(title)):
+        topics.append("science")
+    return topics
+
+
 def parse_float(value) -> float | None:
     try:
         f = float(value)

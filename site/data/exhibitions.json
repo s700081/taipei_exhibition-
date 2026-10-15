@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-15T06:56:10+08:00",
+ "updated_at": "2026-10-15T21:00:36+08:00",
  "window": {
   "from": "2026-10-15",
   "to": "2027-02-12"
@@ -13,21 +13,28 @@
    "count": 5
   },
   {
+   "id": "ntsec",
+   "name": "國立臺灣科學教育館",
+   "url": "https://www.ntsec.gov.tw/",
+   "ok": true,
+   "count": 7
+  },
+  {
    "id": "culture_express",
    "name": "臺北市文化局 臺北文化快遞",
    "url": "https://cultureexpress.taipei/",
    "ok": true,
-   "count": 61
+   "count": 62
   },
   {
    "id": "moc",
    "name": "文化部文化資料開放服務網",
    "url": "https://cloud.culture.tw/",
    "ok": true,
-   "count": 23
+   "count": 25
   }
  ],
- "count": 73,
+ "count": 83,
  "exhibitions": [
   {
    "id": "30746e8410",
@@ -53,6 +60,7 @@
    "organizer": "阿波羅畫廊",
    "description": "藝術家王綺穗在《Watershed 分水嶺》個展，結合繪畫、編織等複合媒材，以水為主軸，探討時間流轉、記憶承載與身份認同的內在關係。為觀者帶來連結自然、自我與族群歷史的藝術體驗。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -88,6 +96,7 @@
    "keywords": [
     "富邦美術館"
    ],
+   "topics": [],
    "sources": [
     "culture_express",
     "moc"
@@ -117,6 +126,7 @@
    "organizer": "當代一畫廊",
    "description": "「一段敘述總是這樣開始的。」對李秉璈而言，創作從一個畫面、一個位置、一顆微小的顆粒，或一句隨手記下的文字開始。生活中的片段經過反覆觀看、整理與轉換，逐漸「降落」於畫布。 《page.》呈現這些感覺的落地。工作室、微塵、顆粒、平面性、破碎等詞彙，如散落的線索，在編排與轉換之間進入作品。每一次「降落」既像敘述的結束，也指…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -145,6 +155,7 @@
    "organizer": "聯邦藝術中心",
    "description": "藝術家祁連長年耕耘寫實油畫，藉由細膩的光影變化、層疊的色彩與獨特筆觸，將自然山水與人文記憶交織於畫布之中。 不僅是風景的再現，更是一段歷史與文化記憶，以及對土地情感的凝望與回應。 ｜《原鄉情長：臺灣山脈與古厝之美》祁連個展 展期｜8/15-10/25 時間｜週二-週日10:00–19:00（週一休館） 地址｜台北市忠…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express",
     "moc"
@@ -174,6 +185,7 @@
    "organizer": "童里繪本洋行",
    "description": "台灣妖怪卷系列，從2015年的《巨人怪說》到2017年《怪生島》，九年後迎來新篇《怪貓誌》。 本人懼貓毛，但喜歡怪裡怪氣有個性的貓。我沒法親近貓，不如就在畫裡擼貓，把百年前至今的怪貓談挖出來，不只怪貓，同科的虎在臺灣山野間也吼出聲名遠播的傳奇。讓我將他們寫下來，畫出來，瞧瞧牠們在生前與死後的脾氣，是否會比人更難以捉摸？",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -202,6 +214,7 @@
    "organizer": "孟焦畫坊",
    "description": "和杉的作品關懷台灣在地土親、人親的情懷 ，運用油彩的質、量、 色來表現自己在寶島土地上看過和感受到的“台灣之美”。 印象派筆法，層次豐富色彩處理也細膩，愛好描寫田園景色，鄉村生活與辛勤樸素的農民等，以寫實的筆觸表達台灣土地上的真情紀錄。 例如今年展出的馬鈴薯豐收、 農村牛車、羊群雞鴨、火焰山油菜花海、落羽松、海邊魚塭…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -233,6 +246,7 @@
     "國家攝影文化中心",
     "攝影文化中心"
    ],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -264,6 +278,7 @@
     "蒙藏文化館",
     "蒙藏文化中心"
    ],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -292,6 +307,7 @@
    "organizer": "穎川畫廊",
    "description": "《晉見山明》是一場關於山水的凝視，更是一場關於當代處境的思考。在這裡，山不只是山，水不只是水；它們映照著人的情感、記憶與生命狀態。當我們願意放慢腳步，以敬畏之心晉見山明，也許終將發現，真正抵達的並非一處風景，而是一種重新安放心靈的位置。如同行路者穿越蜿蜒山徑，在低首前行之際，忽然抬頭望見豁然開朗的山光雲色，感受那一瞬…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -320,6 +336,7 @@
    "organizer": "國立臺北藝術大學",
    "description": "第十六屆關渡國際動畫節將於2026年10月25日至10月31日 在國立臺北藝術大學藝文生態館盛大舉行，由動畫系師生共同策劃與主辦。影展地處人文薈萃的關渡平原，是臺北市極具代表性的國際動畫影展之一。集結全球頂尖創作者，多元豐富的活動涵蓋 國際競賽、專題講座、動畫工作坊與兒童動畫營，打造跨世代與跨領域的交流平台，並持續推…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -350,6 +367,7 @@
    "keywords": [
     "北投溫泉博物館"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -378,6 +396,7 @@
    "organizer": "童里繪本洋行",
    "description": "立體書的獨立製作與量產，始終是一項複雜而細密的工作。這次，Emily Liu 也試著讓紙張結構更往前一步。展覽將呈現手稿、立體結構模型與製作過程紀錄，邀請觀者走近一本立體書從構想、試作到成形的六年經驗。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -409,8 +428,49 @@
     "國家攝影文化中心",
     "攝影文化中心"
    ],
+   "topics": [],
    "sources": [
     "moc"
+   ]
+  },
+  {
+   "id": "6da11f2574",
+   "title": "2026 ART TAIPEI 異雲書屋十週年特展：桃花源記",
+   "venue": "台北世貿一館",
+   "address": "臺北市信義區",
+   "district": "信義區",
+   "lat": 25.034038,
+   "lng": 121.562355,
+   "geo_precision": "venue",
+   "start": "2026-10-30",
+   "end": "2026-11-02",
+   "price": {
+    "text": "NT$450、600 (accupass)",
+    "free": false,
+    "min": 450,
+    "max": 450,
+    "tickets": [
+     {
+      "name": "票價",
+      "amount": 450
+     }
+    ]
+   },
+   "url": "https://www.yiyun-art.com/exhibition/2026-12",
+   "ticket_url": "https://www.accupass.com/event/2607080649073395119800",
+   "image": "https://cultureexpress.taipei/UploadPlugin?file=%2fw6lriPeTD4Ry1335WB012EehCg3U435trr%2bfgrTM73t%2b8NCc%2f1duLe0XquGGY0RW6NMGyAjCcP7tgakUOuj0sUXQCLpaSfPnwo1Lk19PC4%3d",
+   "organizer": "異雲書屋",
+   "description": "2026 異雲書屋 適逢成立十週年，於 台北國際藝術博覽會 重磅推出紀念特展「桃花源記」。此次展出畫廊十年來重要合作的15位藝術家，呈現三大軸線：以溥心畬、余承堯、陳其寬連結戰後華人近現代水墨藝術的面貌；藉由臺靜農、井上有一、須田剋太、卜茲、劉欣勾勒東亞書法藝術的多元對話；再以于彭、吳士偉、常陵、沐冉、顏妤庭展現台灣…",
+   "keywords": [
+    "臺北世界貿易中心展覽一館",
+    "世貿一館",
+    "世貿展覽一館",
+    "臺北世貿中心",
+    "臺北世界貿易中心"
+   ],
+   "topics": [],
+   "sources": [
+    "culture_express"
    ]
   },
   {
@@ -452,6 +512,7 @@
     "臺北世貿中心",
     "臺北世界貿易中心"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -480,6 +541,7 @@
    "organizer": "99˚藝術中心",
    "description": "「筆記#15」是藝術家黃楷馨的第15次個展。藝術家的許多作品，最初皆源自速寫簿（sketchbook）裡的「筆記」。對她而言，「筆記」不只是創作的起點，也是讓創作、展覽與生活持續共存的一種方式。因此，在沒有特殊情況下，藝術家選擇直接以「筆記」為個展名稱，並以編號延續。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -529,6 +591,7 @@
     "故宮博物院",
     "故宮北部院區"
    ],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -560,8 +623,42 @@
     "台北當代藝術館",
     "當代藝術館"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
+   ]
+  },
+  {
+   "id": "aef7cc8976",
+   "title": "《AHA 原來如此！教科書設計展》",
+   "venue": "台北松山文創園區・台灣設計館 01 展間",
+   "address": "台北市信義區光復南路133號",
+   "district": "信義區",
+   "lat": 25.043723,
+   "lng": 121.560797,
+   "geo_precision": "venue",
+   "start": "2026-10-14",
+   "end": "2026-11-08",
+   "price": {
+    "text": "免費（非售票活動）",
+    "free": true,
+    "min": 0,
+    "max": 0,
+    "tickets": []
+   },
+   "url": "https://cloud.culture.tw/frontsite/inquiry/eventInquiryAction.do?method=showEventDetail&uid=6ad067f2eb43ead9f13aebc8",
+   "ticket_url": null,
+   "image": null,
+   "organizer": "教育部",
+   "description": "",
+   "keywords": [
+    "松山文創園區",
+    "松菸",
+    "松山菸廠"
+   ],
+   "topics": [],
+   "sources": [
+    "moc"
    ]
   },
   {
@@ -588,6 +685,7 @@
    "organizer": "琂樂堂藝文空間",
    "description": "林宇軒將於琂樂堂藝文空間推出個展「物．我」。展覽聚焦於藝術家對案頭奇石、古器與日常物件的凝視，以細緻筆墨記錄物體的肌理、光影與歲月痕跡，將對外物的觀察轉化為對內心的審視，尋得物我之間的寧靜共鳴。 作品結合傳統題跋，圖像捕捉視覺型態，文字記錄無形心念，圖文相映，呈現「觀物悟我」的精神歷程。 展期自2026年10月16日…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express",
     "moc"
@@ -617,6 +715,7 @@
    "organizer": "也趣藝廊",
    "description": "身體走入風景——劉昕穎個展《她與她》十月於也趣藝廊開展 藝術家劉昕穎將在也趣藝廊舉行個展《她與她》，以繪畫與陶瓷呈現身體如何步入風景，以及兩個生命於彼此靠近時生成的場域。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -647,6 +746,7 @@
    "keywords": [
     "鳳甲美術館"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -675,6 +775,7 @@
    "organizer": "孟焦畫坊",
    "description": "「澄」是沉澱，也是清明，「願」是初心，也是所守。茶壺於我從來不只是盛茶器物，它有形，也有性，有手作的溫度，也有歲月的重量，做壺久了，慢慢明白，器物求的不是繁，而是靜，不是奇，而是真。曾經追求過技法與變化，逐漸回到自己的想法，壺有大小、方圓、高低、曲直、各有其性，有人喜愛小壺的精緻，有人鍾情大壺的氣度。尤其大壺一壺可分…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -703,6 +804,7 @@
    "organizer": "慈濟大學傳播學系",
    "description": "「逐」光而行，我們用創作回應世界 「幀」幀成篇，我們用作品留下觀察 四年來，我們用鏡頭記錄生活 用聲音傳遞情感，用文字留下思考 那些值得被記住的瞬間 在一次次觀察與創作中被保存下來 當無數個獨立的畫面彼此交會 便拼湊出屬於第23屆傳播人的《逐幀》 今年秋天，邀請你一同走入這些故事 看見每一幀背後的溫度和視角 2026…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -731,6 +833,7 @@
    "organizer": "安卓藝術股份有限公司",
    "description": "安卓藝術將於 2026 年 10 月 17 日至 11 月 21 日推出聯展「陰性空間」（Feminine Space），並於 10 月 17 日下午 4 點 30 分舉行開幕酒會。本展由陳家翊、陳妍伶、瑪莉娜．克魯斯、派翠西亞．伊斯塔柯、羅懿君、安德利亞．梅達爾、安娜・瑪瑞亞・米庫與謝鴻均等來自臺灣、菲律賓與羅馬尼…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express",
     "moc"
@@ -760,6 +863,7 @@
    "organizer": "異雲書屋",
    "description": "翁榛羚 個展「失敗的戀愛」，即將於 2026 年 10 月 22 日至 11 月 21 日，在 異雲書屋 展出。翁榛羚出生於台北。作品從探討內在自我與外在形象的矛盾中出發，進而延伸至對真幻界限、人性扭曲、歷史重演等議題之揶揄，創造出以佝僂作為盲目群眾象徵的獵奇風景，並且以銅版腐蝕與線香燒灼作為主要表現形式，企圖探索東…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -791,6 +895,7 @@
     "台北當代藝術館",
     "當代藝術館"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -822,6 +927,7 @@
     "台北當代藝術館",
     "當代藝術館"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -850,6 +956,7 @@
    "organizer": "佛光緣美術館台北館",
    "description": "臺灣水墨藝術家一方面深植於書畫傳統所累積的文化底蘊，另一方面積極吸納當代藝術思潮與跨域表現形式，從媒材實驗、畫面經營到文化議題的介入，不斷拓展水墨藝術的表現疆界。這樣的創作發展，不僅展現臺灣多元文化所孕育的開放性格，也使水墨成為一種能夠回應當代生活、映照人文精神，同時反映時代思維的重要藝術形態。由國立臺灣藝術大學書畫…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -878,6 +985,7 @@
    "organizer": "1839當代藝廊",
    "description": "浮世物語：日本3.11-余偉建攝影展》 適逢日本3.11東日本大震災15週年，香港攝影記者余偉建以超過百件作品，重現災難現場與人性光芒。 展期2026/10/17-11/22 開幕暨攝影家座談 2026/10/17（六） 14:30-17:00 對談人｜ 余偉建（ Vincent Yu） × 黃啟裕（Blues Wo…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -910,6 +1018,7 @@
     "松菸",
     "松山菸廠"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -947,6 +1056,7 @@
     "松菸",
     "松山菸廠"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -978,6 +1088,7 @@
     "台北圓山大飯店",
     "圓山大飯店"
    ],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -1009,6 +1120,7 @@
     "國家攝影文化中心",
     "攝影文化中心"
    ],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -1037,6 +1149,7 @@
    "organizer": "中國科技大學藝文中心",
    "description": "藝術家簡俊吉畢業於台藝大造形研究所，其個展「一河兩岸‧月之門系列」展現深耕近二十年的創作成果。作品呈現純粹山水與濃厚的東方意境，富含文學詩意，意在與倪雲林的繪畫風格接軌。畫面常見飛簷、冷月與古厝，構築出簡靜無言的宇宙意象；並大量採用東方「立軸」形式，將風景還原至初始狀態，轉化為「軸符號」，展現宇宙大地的深沉奧秘與蒼茫。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1065,6 +1178,7 @@
    "organizer": "曙畫廊",
    "description": "曙畫廊呈獻《流響共振 Grooving & Resonance——霍慧中 × 陳依純雙人展》，由廖康樾策展。霍慧中將潛意識、精神性與記憶融入唐卡繪畫；陳依純則從影像、動畫與數位媒介回到手繪，將旅行、聲響、速度與身體感知轉譯為繪畫。展覽探索靜與動、古典與當代之間生成的新共鳴。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1100,6 +1214,7 @@
    "keywords": [
     "郵政博物館"
    ],
+   "topics": [],
    "sources": [
     "culture_express",
     "moc"
@@ -1129,6 +1244,7 @@
    "organizer": "帝門藝術事業有限公司",
    "description": "「境」象徵精神上那至高無上的視野；也象徵藝術上那無境之境的自由—李奉 不刻意描繪具體景物，而是在抽象與想像之間，開啟屬於心靈的空間。 在創作裡推動拿起畫筆的，並非瞬間乍現的靈感，而是一種安靜而巨大的狀態。 不經意瞥見的景象，是湖面的倒影，又或是瞬間停留在記憶裡的感受，經過沉澱，成為畫布上的色彩與筆觸。 以近乎直覺的方…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1157,6 +1273,7 @@
    "organizer": "One-Forty、國家兩廳院",
    "description": "對許多移工而言，有時每月僅有少數的休假日。許多移工選擇在珍貴的週日拿起相機或手機，捕捉肩負生活與家鄉重擔的「限定的空間」、透過信仰與相聚安撫孤獨的「限定的時光」，以及在異鄉重塑自我的「限定的自我」。本展由 One-Forty 與兩廳院秋天藝術節共同主辦，呼應跨國勞動議題，透過移工國際攝影獎得獎作品，以移工第一人稱視角…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1185,6 +1302,7 @@
    "organizer": "孟焦畫坊",
    "description": "旅日知名台灣陶藝家張義明，復興美工畢業後深造於日本，並曾跟隨台灣國寶級陶藝、釉藥大師范振金教授學習。近年致力於釉藥色彩研究，是第一個連續兩年受邀在京都陶瓷器會館舉行個展的台灣藝術家。曾榮獲「京展 市長賞」等多項日本重量級大獎，日本、台灣、上海各地邀展不斷。他獨創「彩虹釉」技法，在1260度高溫中淬鍊出如朝暮光影般萬千…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1213,6 +1331,7 @@
    "organizer": "阿波羅畫廊",
    "description": "藝術家沈佳玲突破大眾對傳統地毯或掛毯的實用性想像，大膽將織面視為畫布、以纖維取代顏料。她擅長運用西藏純羊毛、竹絲等天然材質，結合高低絨結構與手工雕刻修剪技法。隨著走動時光線與視角的改變，羊毛織面呈現如水墨暈染般的色澤變化，讓平面的掛織展現出接近浮雕的立體景深。本次展出數件織品作品與水彩壓克力小品創作。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1241,6 +1360,7 @@
    "organizer": "金車文藝中心KCCA",
    "description": "",
    "keywords": [],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -1269,6 +1389,7 @@
    "organizer": "穎川畫廊",
    "description": "洪郁喜與陳廷彰兩位藝術家，以退隱的身影、朦朧的視野、織物的孔隙、宣紙的滲透，構築出一場關於感知與存在的對話。郁喜以貓為符號，在大型支柱與垂掛麻布之間，探索躲藏與現身的邊界，讓光影與視線穿透遮蔽，在不安的年代裡為自身尋得一處安放之所。廷彰則以宣紙反覆翻面，讓墨痕在紙背浮現又隱去，於刻意留白的資訊缺失中，凝視主體與世界之…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1297,6 +1418,7 @@
    "organizer": "當代一畫廊",
    "description": "文/黃品玲 所謂的「光」並非物理上的光線，則更接近於對於感受被觸發的瞬間的描述，就像是空氣中塵埃被光線照射而閃爍的樣子，那個瞬間彷彿時間變得緩慢而安靜。而這些塵埃可以理解成記憶的殘留、時間留下的微粒、消逝後仍存在的痕跡，而我想在這次展覽中描繪的，正是那些瑣碎的記憶片段被光線照亮、於一瞬間閃耀的片刻。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1327,6 +1449,7 @@
    "keywords": [
     "大稻埕戲苑"
    ],
+   "topics": [],
    "sources": [
     "culture_express",
     "moc"
@@ -1365,9 +1488,43 @@
     "北美館",
     "臺北市美術館"
    ],
+   "topics": [],
    "sources": [
     "tfam",
     "culture_express"
+   ]
+  },
+  {
+   "id": "7310c3f969",
+   "title": "毛孩藝術生活節",
+   "venue": "松山文創園區",
+   "address": "台北市信義區光復南路133號",
+   "district": "信義區",
+   "lat": 25.043723,
+   "lng": 121.560797,
+   "geo_precision": "venue",
+   "start": "2026-12-18",
+   "end": "2026-12-20",
+   "price": {
+    "text": "免費（非售票活動）",
+    "free": true,
+    "min": 0,
+    "max": 0,
+    "tickets": []
+   },
+   "url": "https://www.instagram.com/jmg.live/",
+   "ticket_url": null,
+   "image": null,
+   "organizer": "",
+   "description": "",
+   "keywords": [
+    "松山文創園區",
+    "松菸",
+    "松山菸廠"
+   ],
+   "topics": [],
+   "sources": [
+    "moc"
    ]
   },
   {
@@ -1394,6 +1551,7 @@
    "organizer": "政大藝文中心",
    "description": "2026年秋冬之際，政大藝文中心邀請藝術家倪灝向我們揭示社會文化的一面，他以買家身分進入網路上的戀物市場，這個市場通常隱密流通於深諳此癖好的人群之中，線上買家可以透過聊天購買穿過的襪子等衣物、足部穿脫影像。藉由藝術家的轉化，親密的衣物被製成如同紀念品般的雕塑，捨棄其原有的功能，被定格在特製背景的框架之中，彷彿舞動著供…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -1422,6 +1580,7 @@
    "organizer": "山屋口口",
    "description": "「這些小張的畫適合掛放在書房裡，陪著你一起看書、工作、聽音樂或沉思...。若是你看了進去，可以跟它對話交流；因為，它的創作背後的心也正是你的心。」─ 葉東進。主題來自葉東進的構想，非單純描述作品適合放在書房，而是他對創作與觀看經驗的一種理解：作品進入書房後，不只是被陳列，而是與人的日常、閱讀、獨處與思考產生關係，成為…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1462,6 +1621,9 @@
     "國立臺灣科學教育館",
     "科教館"
    ],
+   "topics": [
+    "science"
+   ],
    "sources": [
     "culture_express"
    ]
@@ -1490,6 +1652,7 @@
    "organizer": "谷公館",
    "description": "谷公館很高興地宣布張凱鈞於畫廊的首次個展《埋藏與浮現》（L’Enfoui et L’Émergé）。展覽將由「遙遠的光重複著」以及「光景」兩個繪畫系列相映而成。前者發展自2017年，以壓克力顏料在中型以上的尺幅描繪光影飄忽中稍縱即逝的痕跡。後者發展自2024年，以油畫顏料帶著筆觸的肌理描繪光的運動。在散光與聚焦中，畫…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1527,6 +1690,7 @@
     "古生物館",
     "土銀展示館"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1555,6 +1719,7 @@
    "organizer": "胡克敏紀念館",
    "description": "胡克敏紀念館收藏胡克敏摹繪的敦煌壁畫凡十六幅，現場展示十幅，堪稱經典。 民國四十四年國立歷史博物館欲闢建敦煌壁畫展覽室，以石窟方式展示。聘請專精造型與色彩的胡克敏擔此重任。胡克敏沒去過敦煌石窟僅憑黑白照片摹繪、訪談曾去過的專家學者，歷時四百餘天摹繪一百餘幅，成果令人讚嘆。 可惜後來展覽室因火災焚毀，從此胡克敏的敦煌壁…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1583,6 +1748,7 @@
    "organizer": "胡克敏紀念館",
    "description": "胡克敏大師的經典水墨鉅作〜水墨蔬菜長卷，在近6公尺長的長卷上，以流暢精準的水墨畫法，精心繪製36種蔬菜，充滿田園風味，更展現大師流暢多變的水法墨趣。館長李中華女史，特別訂製2公尺長的核桃木展示櫃，以最精緻的方式展現胡克敏大師的水墨代表作。水墨蔬菜長卷自七月21日起展出，歡迎蒞臨免費參觀！！",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1611,6 +1777,7 @@
    "organizer": "胡克敏紀念館",
    "description": "新登場！胡克敏水墨百花圖集原作展 館長希望喜愛水墨畫的朋友，能更直觀地欣賞花鳥畫大師胡克敏的百花圖原作，特別添購三張長桌，銜接成18尺(5.4米)長的平台，原作可展開約13幅，以饗熱愛水墨藝術的朋友。 溫馨提醒：為保護原作，感謝時請戴上口罩及白手套(敬備棉佈白手套)。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express",
     "moc"
@@ -1644,6 +1811,7 @@
     "臺北當代工藝設計分館",
     "當代工藝設計分館"
    ],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -1672,6 +1840,7 @@
    "organizer": "蟾蜍山煥民新村",
    "description": "「創齡藝術共融」在蟾蜍山，已逐漸成為在地社區生活的一部分。蟾蜍山大客廳媽媽們的作品定期更新中，歡迎大家前來看展！",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1702,6 +1871,7 @@
    "keywords": [
     "文山劇場"
    ],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -1730,6 +1900,7 @@
    "organizer": "新芳春茶行",
    "description": "一盞茶，是時間的容器 也是文化的見證者。 它既承載過去，也指向未來； 曾歷輝煌，也走過沉寂。 然而茶香未散，只為等待重生。 本展覽以「茶脈流轉」為題 「茶脈」，象徵茶葉的生命脈絡；流轉」，指向文化在時間中的動態循環。透過一盞茶的 「濃、淡、新」 三個層次作為核心意象，引領觀眾走進臺灣茶產業的輝煌歷史、 產業轉型中的沉…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1758,6 +1929,7 @@
    "organizer": "孫運璿科技･人文紀念館",
    "description": "第四屆台積電硬筆書法大賞以「日記」為主題，著重書寫本身的價值，期待透過手寫文字，重新看見筆與字在記錄生活、承載時間上的獨特意義。 展覽將硬筆書法轉化為空間語言，以蜿蜒的半透明浪板勾勒線條，伴隨明暗起伏的燈光以及若隱若現的植物光影，疊加出輕盈而豐富的空間層次。 展覽自8/29日起至12/31，免費參觀。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1786,6 +1958,7 @@
    "organizer": "新芳春茶行",
    "description": "新芳春茶行2樓特展《她的足跡：大稻埕女性的自主之路》，從日治時期纏足解放談起，走進大稻埕女性的生活與成長故事。從茶行女兒的日常，到今日承接家業、延續技藝、創業與創作的女性，看見不同世代女性走出家庭、走進社會的足跡。透過展覽認識大稻埕女性的生命故事與時代變遷，感受她們如何走出自己的道路，也為老街區創造新的風景。",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1822,6 +1995,7 @@
     "台北當代藝術館",
     "當代藝術館"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1853,6 +2027,7 @@
     "國立臺灣大學",
     "臺灣大學"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1883,6 +2058,7 @@
    "keywords": [
     "郵政博物館"
    ],
+   "topics": [],
    "sources": [
     "culture_express",
     "moc"
@@ -1913,7 +2089,7 @@
    },
    "url": "https://www.tfam.museum/Exhibition/Exhibition_Special.aspx?ddlLang=zh-tw&id=813",
    "ticket_url": null,
-   "image": "https://www.tfam.museum/File/Exhibition/Main/813/2026081415005955910013.jpg",
+   "image": "https://www.tfam.museum/File/Exhibition/Main/813/2026101509363300420180.jpg",
    "organizer": "臺北市立美術館",
    "description": "王雅慧（1973-2023）出生於臺北。1998年畢業於師大美術系西畫組，2004年畢業於國立台北藝術大學科技藝術研究所。她於2002年以《墜》獲臺北美術獎，2002、2010與2023年分別以《縫隙》、《藝術家影院—暗之面》、《訪客》參展台北雙年展，2005年獲國巨科技藝術獎。 王雅慧擅長將細微觀察生活空間與日常經…",
    "keywords": [
@@ -1921,6 +2097,7 @@
     "北美館",
     "臺北市美術館"
    ],
+   "topics": [],
    "sources": [
     "tfam",
     "culture_express"
@@ -1950,6 +2127,7 @@
    "organizer": "臺北藝術大學 關渡美術館",
    "description": "關渡美術館首度與絕版影像館（UP Gallery）聯手，隆重推出美國藝術家於亞洲的首次機構個展《安娜史塔希亞 · 薩莫伊洛娃：影像的氣候》（Anastasia Samoylova: The Climate of Images）。本展由策展人林志恒與廖子寧共同擔綱，以全新視角重新爬梳藝術家的創作脈絡，從對視覺文化的敏銳…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -1980,6 +2158,7 @@
    "keywords": [
     "關渡美術館"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -2010,6 +2189,7 @@
    "keywords": [
     "關渡美術館"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -2043,6 +2223,7 @@
    "organizer": "財團法人福祿文化基金會北投文物館",
    "description": "本次展覽除呈現繪卷、錦繪等繪畫作品外，更匯集各類與妖怪相關之文物，包括和服、根付、印籠等服飾與隨身物件；雙六、玩具等遊戲用品；以及盤皿、花器等生活器用，乃至鍔、小柄等武具配件。透過多元而細緻的展品脈絡呈現，觀眾得以貼近數百年前所綻放的妖怪世界。綿延至今的日本妖怪文化，持續在不同時代與媒介中轉化與再生，並且不斷吸引與感…",
    "keywords": [],
+   "topics": [],
    "sources": [
     "culture_express"
    ]
@@ -2080,6 +2261,7 @@
     "北美館",
     "臺北市美術館"
    ],
+   "topics": [],
    "sources": [
     "tfam",
     "culture_express"
@@ -2110,7 +2292,7 @@
    },
    "url": "https://www.tfam.museum/Exhibition/Exhibition_Special.aspx?ddlLang=zh-tw&id=816",
    "ticket_url": null,
-   "image": "https://www.tfam.museum/File/Exhibition/Main/816/2026090411091853770247.jpg",
+   "image": "https://www.tfam.museum/File/Exhibition/Main/816/2026101509374361660109.jpg",
    "organizer": "臺北市立美術館",
    "description": "愛，看不見、摸不到，卻一直存在我們的生活裡。《I Spy Love，發現愛》從心跳、引力、記憶、距離、身體與時間出發，透過四位藝術家的創作，邀請觀眾重新觀看關係如何形成、延續與被感知。 展覽結合聲音、攝影、雕塑、錄像與互動體驗，孩子與大人將一起傾聽心跳、觀察彼此、分享記憶、交換角色，並透過小書、觀展任務與創作體驗，把…",
    "keywords": [
@@ -2118,6 +2300,7 @@
     "北美館",
     "臺北市美術館"
    ],
+   "topics": [],
    "sources": [
     "tfam",
     "culture_express"
@@ -2156,9 +2339,44 @@
     "北美館",
     "臺北市美術館"
    ],
+   "topics": [],
    "sources": [
     "tfam",
     "culture_express"
+   ]
+  },
+  {
+   "id": "8d7b5792df",
+   "title": "《VR探索虛實穿越》小王子奇幻星旅",
+   "venue": "國立臺灣科學教育館",
+   "address": "臺北市士林區士商路189號",
+   "district": "士林區",
+   "lat": 25.096127,
+   "lng": 121.516704,
+   "geo_precision": "venue",
+   "start": "2026-09-02",
+   "end": "2027-04-30",
+   "price": {
+    "text": "需另行購票，請見購票頁面",
+    "free": false,
+    "min": null,
+    "max": null,
+    "tickets": []
+   },
+   "url": "https://www.ntsec.gov.tw/article/list.aspx?a=25",
+   "ticket_url": "https://oddradio.fonticket.com/search?openExternalBrowser=1",
+   "image": "https://www.ntsec.gov.tw/images/ArticleListPic/6115_2.png",
+   "organizer": "國立臺灣科學教育館",
+   "description": "《VR探索虛實穿越》小王子奇幻星旅 即日起至116年4月30日",
+   "keywords": [
+    "國立臺灣科學教育館",
+    "科教館"
+   ],
+   "topics": [
+    "science"
+   ],
+   "sources": [
+    "ntsec"
    ]
   },
   {
@@ -2189,6 +2407,7 @@
     "松菸",
     "松山菸廠"
    ],
+   "topics": [],
    "sources": [
     "moc"
    ]
@@ -2224,8 +2443,52 @@
    "keywords": [
     "臺北偶戲館"
    ],
+   "topics": [],
    "sources": [
     "culture_express"
+   ]
+  },
+  {
+   "id": "4b4ffd8001",
+   "title": "技職FUN星際介紹",
+   "venue": "國立臺灣科學教育館 8 樓西南展區",
+   "address": "臺北市士林區士商路189號",
+   "district": "士林區",
+   "lat": 25.096127,
+   "lng": 121.516704,
+   "geo_precision": "venue",
+   "start": "2025-07-19",
+   "end": "2027-12-31",
+   "price": {
+    "text": "憑科教館當日常設展或特展門票參觀；常設展全票120元；優待票90元",
+    "free": false,
+    "min": 90,
+    "max": 120,
+    "tickets": [
+     {
+      "name": "常設展全票",
+      "amount": 120
+     },
+     {
+      "name": "優待票",
+      "amount": 90
+     }
+    ]
+   },
+   "url": "https://www.ntsec.gov.tw/article/detail.aspx?a=5820",
+   "ticket_url": null,
+   "image": "https://www.ntsec.gov.tw/images/ArticleListPic/5820_2.jpg",
+   "organizer": "國立臺灣科學教育館",
+   "description": "選擇技職，不只是學會一技之長，還是一條讓人放心、有未來的路！ 主展區會採 AR、XR 技術展出，引進先進技術創造出一個充滿科技感與互動性的展覽環境。因主要目標對象是國中學生，將透過虛擬實境整合的方式，在輕鬆愉快的過程中漸進式了解並認識技職教育，期望所有的參觀者在體驗結束後，能對技職教育有全面的認知與瞭解，幫助在未來的…",
+   "keywords": [
+    "國立臺灣科學教育館",
+    "科教館"
+   ],
+   "topics": [
+    "science"
+   ],
+   "sources": [
+    "ntsec"
    ]
   },
   {
@@ -2259,6 +2522,7 @@
    "keywords": [
     "國立歷史博物館"
    ],
+   "topics": [],
    "sources": [
     "culture_express",
     "moc"
@@ -2290,8 +2554,215 @@
    "keywords": [
     "臺北流行音樂中心"
    ],
+   "topics": [],
    "sources": [
     "moc"
+   ]
+  },
+  {
+   "id": "4b59c902bc",
+   "title": "設計我們的世界-科技性別化創新",
+   "venue": "國立臺灣科學教育館 3F",
+   "address": "臺北市士林區士商路189號",
+   "district": "士林區",
+   "lat": 25.096127,
+   "lng": 121.516704,
+   "geo_precision": "venue",
+   "start": "2020-06-22",
+   "end": null,
+   "price": {
+    "text": "憑科教館當日常設展或特展門票參觀；常設展全票120元；優待票90元",
+    "free": false,
+    "min": 90,
+    "max": 120,
+    "tickets": [
+     {
+      "name": "常設展全票",
+      "amount": 120
+     },
+     {
+      "name": "優待票",
+      "amount": 90
+     }
+    ]
+   },
+   "url": "https://www.ntsec.gov.tw/article/detail.aspx?a=154",
+   "ticket_url": null,
+   "image": "https://www.ntsec.gov.tw/images/ArticleListPic/154_2.jpg",
+   "organizer": "國立臺灣科學教育館",
+   "description": "改變觀看世界的角度，開啟創新思維！ 不論是科學研究、藥物研發、工程設計、環境規劃、科技創新發明，在科學技術與知識革新的過程中，都存在著忽略「生理性別」、「社會性別」的分析視角，錯失了許多創新的可能;未能察覺性別可能導致的偏誤以及科技與工程領域中的性別不平等，也使得創新研發的過程，缺少了更多元的角度與觀點。 性別平等，…",
+   "keywords": [
+    "國立臺灣科學教育館",
+    "科教館"
+   ],
+   "topics": [
+    "science"
+   ],
+   "sources": [
+    "ntsec"
+   ]
+  },
+  {
+   "id": "65cf067a75",
+   "title": "《看見創造》- CCC Open Studio",
+   "venue": "國立臺灣科學教育館 B1西南側CCC Open Studio",
+   "address": "臺北市士林區士商路189號",
+   "district": "士林區",
+   "lat": 25.096127,
+   "lng": 121.516704,
+   "geo_precision": "venue",
+   "start": "2024-07-12",
+   "end": null,
+   "price": {
+    "text": "免費參觀",
+    "free": true,
+    "min": 0,
+    "max": 0,
+    "tickets": []
+   },
+   "url": "https://www.ntsec.gov.tw/article/detail.aspx?a=5565",
+   "ticket_url": null,
+   "image": "https://www.ntsec.gov.tw/images/ArticleListPic/5565_2.jpg",
+   "organizer": "國立臺灣科學教育館",
+   "description": "CCC (Cosmos Co-Creation) Open Studio以「看見創造」為空間精神，由豪華朗機工藝術團隊與三頁文設計團隊進駐本館B1西南側空間，與本館共同合作展覽策劃、藝術作品研發、專題講座、工作坊等共創內容，將手腦並作的實驗發展過程，呈現為工作展演，也是創造作品的現場。 「永遠都會回到人的創造性。」在…",
+   "keywords": [
+    "國立臺灣科學教育館",
+    "科教館"
+   ],
+   "topics": [
+    "science"
+   ],
+   "sources": [
+    "ntsec"
+   ]
+  },
+  {
+   "id": "92a4634175",
+   "title": "《末日學校》特展",
+   "venue": "國立臺灣科學教育館 4樓東側展區",
+   "address": "臺北市士林區士商路189號",
+   "district": "士林區",
+   "lat": 25.096127,
+   "lng": 121.516704,
+   "geo_precision": "venue",
+   "start": "2024-07-31",
+   "end": null,
+   "price": {
+    "text": "憑科教館當日常設展或特展門票參觀；常設展全票120元；優待票90元",
+    "free": false,
+    "min": 90,
+    "max": 120,
+    "tickets": [
+     {
+      "name": "常設展全票",
+      "amount": 120
+     },
+     {
+      "name": "優待票",
+      "amount": 90
+     }
+    ]
+   },
+   "url": "https://www.ntsec.gov.tw/article/detail.aspx?a=5462",
+   "ticket_url": null,
+   "image": "https://www.ntsec.gov.tw/images/ArticleListPic/5462_2.png",
+   "organizer": "國立臺灣科學教育館",
+   "description": "「末日學校」計畫開始於2018年，由AND臺灣藝術與科技中心(Taiwan Arts and Technology Center)支持的科技藝術實驗計畫。當時以「辦理末日學校招生說明會」形式，在臺灣當代文化實驗場 (C-LAB) 展出，開啟一場藝術科學跨領域的公眾對話。近年來，科學家對於氣候變遷、全球暖化、物種消失、…",
+   "keywords": [
+    "國立臺灣科學教育館",
+    "科教館"
+   ],
+   "topics": [
+    "science"
+   ],
+   "sources": [
+    "ntsec"
+   ]
+  },
+  {
+   "id": "e6b515f514",
+   "title": "看見分子相遇的奇妙",
+   "venue": "國立臺灣科學教育館 3樓西側展區",
+   "address": "臺北市士林區士商路189號",
+   "district": "士林區",
+   "lat": 25.096127,
+   "lng": 121.516704,
+   "geo_precision": "venue",
+   "start": "2025-06-28",
+   "end": null,
+   "price": {
+    "text": "憑科教館當日常設展或特展門票參觀；常設展全票120元；優待票90元",
+    "free": false,
+    "min": 90,
+    "max": 120,
+    "tickets": [
+     {
+      "name": "常設展全票",
+      "amount": 120
+     },
+     {
+      "name": "優待票",
+      "amount": 90
+     }
+    ]
+   },
+   "url": "https://www.ntsec.gov.tw/article/detail.aspx?a=5751",
+   "ticket_url": null,
+   "image": "https://www.ntsec.gov.tw/images/ArticleListPic/5751_2.png",
+   "organizer": "國立臺灣科學教育館",
+   "description": "由中央研究院原分所與遠哲基金會共同主辦的 看見分子相遇的奇妙 ，展覽最大亮點為首次對外公開展示的「 交叉分子束儀器 ---35inch」，此儀器支撐數位諾貝爾化學獎得主的實驗設計，被譽為「 看見化學反應的Playground 」。在這裡大家可深入了解此國寶級科學儀器如何協助科學家解釋臭氧層破洞的因素之一，進一步認識氣…",
+   "keywords": [
+    "國立臺灣科學教育館",
+    "科教館"
+   ],
+   "topics": [
+    "science"
+   ],
+   "sources": [
+    "ntsec"
+   ]
+  },
+  {
+   "id": "97b705d67e",
+   "title": "《如果把線放進去會變成什麼》微型展",
+   "venue": "國立臺灣科學教育館 3樓東側廊道",
+   "address": "臺北市士林區士商路189號",
+   "district": "士林區",
+   "lat": 25.096127,
+   "lng": 121.516704,
+   "geo_precision": "venue",
+   "start": "2025-11-08",
+   "end": null,
+   "price": {
+    "text": "憑科教館當日常設展或特展門票參觀；常設展全票120元；優待票90元",
+    "free": false,
+    "min": 90,
+    "max": 120,
+    "tickets": [
+     {
+      "name": "常設展全票",
+      "amount": 120
+     },
+     {
+      "name": "優待票",
+      "amount": 90
+     }
+    ]
+   },
+   "url": "https://www.ntsec.gov.tw/article/detail.aspx?a=5905",
+   "ticket_url": null,
+   "image": "https://www.ntsec.gov.tw/images/ArticleListPic/5905_2.jpg",
+   "organizer": "國立臺灣科學教育館",
+   "description": "有沒有看見那個倒三角形？為什麼它不停地移動？似乎有線條由上往下隨之舞動？透明外殼裡的機體骨架、運作結構、機械零件，彼此和諧地相互搭配，跟著律動節拍建構出獨特機械美。 使用線材構築大型、一體成型的3D列印物件，相關應用包括：捷安特自行車握把打樣、豪華朗機工藝術團隊於本館公共空間紙漿翻模8樓樓牌模具、及其成團15年《宇宙…",
+   "keywords": [
+    "國立臺灣科學教育館",
+    "科教館"
+   ],
+   "topics": [
+    "science"
+   ],
+   "sources": [
+    "ntsec"
    ]
   }
  ]

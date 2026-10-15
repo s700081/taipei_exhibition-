@@ -17,7 +17,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from .geocode import Geocoder
-from .normalize import is_taipei, now_taipei, title_key, to_tai
+from .normalize import detect_topics, is_taipei, now_taipei, title_key, to_tai
 from .sources import SOURCES
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -127,6 +127,7 @@ def to_output(rec: dict) -> dict:
         "organizer": rec.get("organizer") or "",
         "description": rec.get("description") or "",
         "keywords": rec.get("keywords") or [],
+        "topics": detect_topics(rec["title"], rec.get("venue") or "", rec.get("organizer") or ""),
         "sources": rec["sources"],
     }
 

@@ -22,8 +22,9 @@
       <p class="meta" id="meta">載入中…</p>
     </div>
     <div class="view-toggle" role="tablist" aria-label="切換檢視">
-      <button type="button" role="tab" data-view="list" aria-selected="true">列表</button>
-      <button type="button" role="tab" data-view="map" aria-selected="false">地圖</button>
+      <button type="button" role="tab" class="only-wide" data-view="split" aria-selected="true">地圖＋列表</button>
+      <button type="button" role="tab" data-view="list" aria-selected="false"><span class="only-wide">只看列表</span><span class="only-narrow">列表</span></button>
+      <button type="button" role="tab" class="only-narrow" data-view="map" aria-selected="false">地圖</button>
     </div>
   </header>
 
@@ -40,6 +41,12 @@
       <button type="button" class="chip" data-value="upcoming" aria-pressed="false">即將開展</button>
     </div>
     <div class="selects">
+      <label><span class="sr-only">主題</span>
+        <select id="topic">
+          <option value="all">不限主題</option>
+          <option value="science">科學・科技</option>
+        </select>
+      </label>
       <label><span class="sr-only">費用</span>
         <select id="price">
           <option value="all">不限費用</option>
@@ -62,7 +69,7 @@
     </div>
   </section>
 
-  <main class="layout" data-view="list">
+  <main class="layout" data-view="split">
     <section class="list-pane" aria-label="展覽列表">
       <p class="result-count" id="count" aria-live="polite"></p>
       <ol class="cards" id="cards"></ol>
@@ -86,6 +93,7 @@
           <p class="status"></p>
           <h2 class="title"><button type="button" class="locate"></button></h2>
           <p class="venue"></p>
+          <p class="desc"></p>
           <dl class="facts">
             <div><dt>展期</dt><dd class="dates"></dd></div>
             <div><dt>票價</dt><dd class="price"></dd></div>

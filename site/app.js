@@ -68,6 +68,7 @@
     q: "",
     when: "all",
     price: "all",
+    topic: "all",
     district: "all",
     sort: "ending",
     activeId: null,
@@ -84,7 +85,8 @@
       out.phase = "ongoing";
       out.daysLeft = e != null ? e - TODAY : null;
     }
-    out.longRun = s != null && e != null && e - s > 365;
+    // 展期超過一年，或沒有結束日期且已展出一年以上
+    out.longRun = s != null && (e != null ? e - s > 365 : TODAY - s > 365);
     return out;
   }
 
@@ -122,6 +124,7 @@
     if (ex.e != null && ex.e < TODAY) return false;
     if (state.q && !state.q.split(/\s+/).every((w) => ex.search.includes(norm(w)))) return false;
     if (state.district !== "all" && ex.district !== state.district) return false;
+    if (state.topic !== "all" && !(ex.topics || []).includes(state.topic)) return false;
     if (state.price === "free" && !(ex.price && ex.price.free === true)) return false;
     if (state.price === "paid" && !(ex.price && ex.price.free === false)) return false;
     switch (state.when) {
@@ -313,6 +316,7 @@
       venue.append(" ", approx);
     }
 
+    $(".desc", node).textContent = ex.description || "";
     $(".dates", node).textContent = formatRange(ex);
     const price = priceText(ex.price);
     const priceEl = $(".price", node);
@@ -360,19 +364,45 @@
   // ---------- 互動 ----------
 
   const layout = $(".layout");
-  const isNarrow = () => window.matchMedia("(max-width: 820px)").matches;
+  const narrowQuery = window.matchMedia("(max-width: 820px)");
+  const isNarrow = () => narrowQuery.matches;
 
-  function setView(view) {
+  // 檢視模式：寬螢幕可選「地圖＋列表 / 只看列表」，手機可選「列表 / 地圖」，各自記住偏好
+  const VIEW_KEY = "taipei-exhibition:view";
+  const viewPref = { wide: "split", narrow: "list" };
+  try {
+    Object.assign(viewPref, JSON.parse(localStorage.getItem(VIEW_KEY)) || {});
+  } catch {
+    /* 無法使用 localStorage 時用預設值 */
+  }
+
+  function currentView() {
+    if (isNarrow()) return viewPref.narrow === "map" ? "map" : "list";
+    return viewPref.wide === "list" ? "list" : "split";
+  }
+
+  function applyView() {
+    const view = currentView();
     layout.dataset.view = view;
     document.querySelectorAll(".view-toggle button").forEach((b) => {
       b.setAttribute("aria-selected", String(b.dataset.view === view));
     });
-    if (view === "map") {
+    if (view !== "list" && map) {
       setTimeout(() => {
         map.invalidateSize();
         fitAll();
       }, 0);
     }
+  }
+
+  function setView(view) {
+    viewPref[isNarrow() ? "narrow" : "wide"] = view;
+    try {
+      localStorage.setItem(VIEW_KEY, JSON.stringify(viewPref));
+    } catch {
+      /* 忽略 */
+    }
+    applyView();
   }
 
   function selectExhibition(id, { fromMap }) {
@@ -383,10 +413,12 @@
       if (isNarrow()) setView("list");
       const card = cardById.get(id);
       if (card && card.isConnected) card.scrollIntoView({ behavior: "smooth", block: "center" });
-    } else {
-      if (isNarrow()) setView("map");
-      setTimeout(() => focusOnMap(id), isNarrow() ? 50 : 0);
+      return;
     }
+    // 點標題＝在地圖上顯示；地圖目前隱藏的話先切回有地圖的檢視
+    const mapHidden = currentView() === "list";
+    if (mapHidden) setView(isNarrow() ? "map" : "split");
+    setTimeout(() => focusOnMap(id), mapHidden ? 50 : 0);
   }
 
   function apply() {
@@ -412,7 +444,7 @@
       $("#when").querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c === btn)));
       apply();
     });
-    for (const id of ["price", "district", "sort"]) {
+    for (const id of ["topic", "price", "district", "sort"]) {
       $(`#${id}`).addEventListener("change", (e) => {
         state[id] = e.target.value;
         apply();
@@ -421,6 +453,7 @@
     document.querySelectorAll(".view-toggle button").forEach((b) => {
       b.addEventListener("click", () => setView(b.dataset.view));
     });
+    narrowQuery.addEventListener("change", applyView);
   }
 
   function fillDistricts(list) {
@@ -465,6 +498,7 @@
 
   async function main() {
     initMap();
+    applyView();
     bindControls();
     let data;
     try {
@@ -489,8 +523,7 @@
       state.activeId = m[1];
       card.classList.add("active");
       card.scrollIntoView({ block: "center" });
-      if (isNarrow()) setView("map");
-      focusOnMap(m[1]);
+      if (currentView() !== "list") focusOnMap(m[1]);
     }
   }
 
