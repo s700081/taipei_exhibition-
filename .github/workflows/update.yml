@@ -53,6 +53,10 @@ jobs:
             git push
           fi
 
+      # 每次部署替 app.js / style.css 加上版本號，避免瀏覽器混用新舊檔案
+      - name: 加上檔案版本號
+        run: sed -i "s/__BUILD__/${GITHUB_SHA::8}/g" site/index.html
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v4

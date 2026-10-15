@@ -43,6 +43,10 @@
   // ---------- 小工具 ----------
 
   const $ = (sel, root = document) => root.querySelector(sel);
+  const setText = (sel, text) => {
+    const node = $(sel);
+    if (node) node.textContent = text;
+  };
   const norm = (s) => (s || "").toLowerCase().replace(/台/g, "臺").replace(/\s+/g, "");
 
   function escapeHtml(s) {
@@ -273,37 +277,58 @@
   // ---------- 列表 ----------
 
   const cardsEl = $("#cards");
-  const template = $("#card-template");
   const cardById = new Map();
 
-  function buildCard(ex) {
-    const node = template.content.firstElementChild.cloneNode(true);
-    node.dataset.id = ex.id;
-    const article = $("article", node);
+  function el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text != null) node.textContent = text;
+    return node;
+  }
 
-    const img = $(".thumb", node);
+  // 卡片完全由 JS 產生，不依賴 index.html 的結構（避免瀏覽器快取到舊版頁面時出錯）
+  function buildCard(ex) {
+    const node = el("li", "card");
+    node.dataset.id = ex.id;
+    const article = el("article");
+    const img = el("img", "thumb");
+    img.alt = "";
+    img.loading = "lazy";
+    img.referrerPolicy = "no-referrer";
+    const body = el("div", "body");
+    const status = el("p", "status");
+    const titleEl = el("h2", "title");
+    const venue = el("p", "venue");
+    const desc = el("p", "desc", ex.description || "");
+    const facts = el("dl", "facts");
+    const datesRow = el("div");
+    datesRow.append(el("dt", "", "展期"), el("dd", "dates", formatRange(ex)));
+    const priceRow = el("div");
+    const priceEl = el("dd", "price");
+    priceRow.append(el("dt", "", "票價"), priceEl);
+    facts.append(datesRow, priceRow);
+    const links = el("p", "links");
+    body.append(status, titleEl, venue, desc, facts, links);
+    article.append(img, body);
+    node.append(article);
+
     const imgUrl = safeUrl(ex.image);
     if (imgUrl) {
       img.src = imgUrl;
-      img.hidden = false;
       img.addEventListener("error", () => {
         img.hidden = true;
         article.classList.add("no-image");
       });
     } else {
+      img.hidden = true;
       article.classList.add("no-image");
     }
 
-    const status = $(".status", node);
     for (const [cls, label] of statusBadges(ex)) {
-      const b = document.createElement("span");
-      b.className = `badge ${cls}`.trim();
-      b.textContent = label;
-      status.append(b);
+      status.append(el("span", `badge ${cls}`.trim(), label));
     }
 
     // 點標題直接開啟展覽資訊
-    const titleEl = $(".title", node);
     const infoUrl = safeUrl(ex.url);
     if (infoUrl) {
       const a = document.createElement("a");
@@ -318,7 +343,6 @@
       titleEl.textContent = ex.title;
     }
 
-    const venue = $(".venue", node);
     venue.textContent = [ex.venue, ex.district].filter(Boolean).join("・");
     if (APPROX.has(ex.geo_precision)) {
       const approx = document.createElement("span");
@@ -327,15 +351,11 @@
       venue.append(" ", approx);
     }
 
-    $(".desc", node).textContent = ex.description || "";
-    $(".dates", node).textContent = formatRange(ex);
     const price = priceText(ex.price);
-    const priceEl = $(".price", node);
     priceEl.textContent = price.text;
     if (price.free) priceEl.classList.add("free");
     if (ex.price && ex.price.text && ex.price.text !== price.text) priceEl.title = ex.price.text;
 
-    const links = $(".links", node);
     const addLink = (url, label) => {
       const href = safeUrl(url);
       if (!href) return;
@@ -372,11 +392,12 @@
       card.classList.toggle("active", ex.id === state.activeId);
       return card;
     }));
-    $("#empty").hidden = list.length > 0;
+    const empty = $("#empty");
+    if (empty) empty.hidden = list.length > 0;
     const total = state.all.filter((ex) => ex.e == null || ex.e >= TODAY).length;
-    $("#count").textContent = list.length === total
+    setText("#count", list.length === total
       ? `共 ${total} 檔展覽`
-      : `符合條件 ${list.length} 檔（共 ${total} 檔）`;
+      : `符合條件 ${list.length} 檔（共 ${total} 檔）`);
   }
 
   // ---------- 互動 ----------
@@ -441,15 +462,16 @@
   }
 
   function bindControls() {
+    // 找不到的控制項（例如瀏覽器快取到舊版頁面）就略過，不讓整個網站壞掉
     let timer;
-    $("#q").addEventListener("input", (e) => {
+    $("#q")?.addEventListener("input", (e) => {
       clearTimeout(timer);
       timer = setTimeout(() => {
         state.q = e.target.value.trim();
         apply();
       }, 150);
     });
-    $("#when").addEventListener("click", (e) => {
+    $("#when")?.addEventListener("click", (e) => {
       const btn = e.target.closest(".chip");
       if (!btn) return;
       state.when = btn.dataset.value;
@@ -457,7 +479,7 @@
       apply();
     });
     for (const id of ["topic", "price", "district", "sort"]) {
-      $(`#${id}`).addEventListener("change", (e) => {
+      $(`#${id}`)?.addEventListener("change", (e) => {
         state[id] = e.target.value;
         apply();
       });
@@ -474,6 +496,7 @@
       if (ex.district) counts.set(ex.district, (counts.get(ex.district) || 0) + 1);
     }
     const select = $("#district");
+    if (!select) return;
     for (const d of DISTRICTS) {
       if (!counts.has(d)) continue;
       const opt = document.createElement("option");
@@ -491,9 +514,10 @@
         hour: "2-digit", minute: "2-digit", hour12: false,
       }).format(updated)
       : "未知";
-    $("#meta").textContent = `資料更新：${fmt}・每週自動更新`;
+    setText("#meta", `資料更新：${fmt}・每週自動更新`);
 
     const sources = $("#sources");
+    if (!sources) return;
     (data.sources || []).forEach((src, i) => {
       if (i > 0) sources.append("、");
       const href = safeUrl(src.url);
@@ -518,7 +542,7 @@
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
       data = await resp.json();
     } catch (err) {
-      $("#meta").textContent = "資料載入失敗，請稍後再試。";
+      setText("#meta", "資料載入失敗，請稍後再試。");
       console.error(err);
       return;
     }
@@ -539,5 +563,8 @@
     }
   }
 
-  main();
+  main().catch((err) => {
+    console.error(err);
+    setText("#meta", "網頁載入時發生錯誤，請重新整理（Ctrl+F5 或下拉重新載入）。");
+  });
 })();
