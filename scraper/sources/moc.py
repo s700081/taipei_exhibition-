@@ -5,6 +5,8 @@
 
 from __future__ import annotations
 
+import re
+
 from .. import fetch
 from ..normalize import clean_text, parse_date, parse_float, parse_price, truncate
 
@@ -13,6 +15,14 @@ SOURCE_NAME = "文化部文化資料開放服務網"
 SOURCE_URL = "https://cloud.culture.tw/"
 API_URL = "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=6"
 DETAIL_URL = "https://cloud.culture.tw/frontsite/inquiry/eventInquiryAction.do?method=showEventDetail&uid={uid}"
+
+
+def _clean_venue(value) -> str:
+    """「八德區（桃園市）=」這類只有行政區的地點名稱沒有意義，清空讓網站改顯示縣市行政區。"""
+    venue = clean_text(value)
+    if re.fullmatch(r"[^（(]{1,4}區\s*[（(][^）)]+[市縣][）)]\s*=?", venue):
+        return ""
+    return venue
 
 
 def fetch_raw() -> list[dict]:
@@ -46,7 +56,7 @@ def parse(items: list[dict]) -> list[dict]:
                 "source": SOURCE_ID,
                 "source_id": f"{uid}-{idx}",
                 "title": title,
-                "venue": clean_text(show.get("locationName")),
+                "venue": _clean_venue(show.get("locationName")),
                 "address": clean_text(show.get("location")),
                 "lat": parse_float(show.get("latitude")),
                 "lng": parse_float(show.get("longitude")),

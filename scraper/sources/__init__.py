@@ -9,6 +9,11 @@ collect() 回傳的每筆資料欄位：
 SOURCES 的順序即合併重複展覽時的優先順序：場館官方資料優先。
 """
 
-from . import culture_express, moc, ntsec, tfam
+from . import culture_express, kmoa, moc, nmmst, ntcam, ntpc_events, ntpc_museums, ntsec, tfam
 
-SOURCES = [tfam, ntsec, culture_express, moc]
+SOURCES = [
+    # 場館官方資料
+    tfam, ntsec, ntcam, ntpc_museums, kmoa, nmmst,
+    # 綜合性開放資料
+    culture_express, ntpc_events, moc,
+]

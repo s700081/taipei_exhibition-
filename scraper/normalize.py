@@ -52,6 +52,8 @@ def clean_text(value: str | None) -> str:
     text = html.unescape(str(value))
     text = re.sub(r"<[^>]+>", " ", text)
     text = text.translate(_FULLWIDTH)
+    # 數學粗體／斜體等裝飾用英數字（例如「𝙎𝙝𝙞𝙥」）轉回一般字母
+    text = re.sub(r"[\U0001D400-\U0001D7FF]", lambda m: unicodedata.normalize("NFKC", m.group()), text)
     return re.sub(r"\s+", " ", text).strip()
 
 
@@ -231,9 +233,9 @@ def parse_zh_date_range(text: str | None) -> tuple[date | None, date | None]:
 
 
 # 標記「科學・科技」主題的關鍵字（比對標題、場館與主辦單位）
-_SCIENCE_VENUES = ("科學教育館", "科教館", "天文科學教育館", "天文館")
+_SCIENCE_VENUES = ("科學教育館", "科教館", "天文科學教育館", "天文館", "海洋科技博物館", "海科館")
 _SCIENCE_WORDS = re.compile(
-    r"(科學|科技|科普|化學|物理|數學|天文|太空|宇宙|星際|分子|原子|半導體|人工智慧|"
+    r"(科學|科技|科普|化學|物理|數學|天文|太空|星際|分子|原子|半導體|人工智慧|"
     r"\bAI\b|機器人|程式設計|工程|生物多樣性|生命科學|人體|醫學|演化|恐龍|化石|地球科學|氣候變遷|STEAM|實驗)",
     re.IGNORECASE,
 )

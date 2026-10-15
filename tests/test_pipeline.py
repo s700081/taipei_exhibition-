@@ -111,13 +111,16 @@ class SourceParseTest(unittest.TestCase):
         records = culture_express.parse([
             item(),
             item(Category="講座"),
-            item(City="新北市"),
+            item(City="臺中市"),
+            item(Caption="新北的展", City="新北市", Area="板橋區"),
             item(Caption="2027 國際攝影大賽"),
             item(Venue="威尼斯雙年展台灣館"),
             item(Caption="售票展", TicketType="售票", TicketPrice="50"),
             item(Caption="坐標缺漏", Latitude=0.0, Longitude=0.0),
         ])
-        self.assertEqual([r["title"] for r in records], ["某個展", "售票展", "坐標缺漏"])
+        self.assertEqual([r["title"] for r in records], ["某個展", "新北的展", "售票展", "坐標缺漏"])
+        self.assertEqual((records[1]["city"], records[1]["address"]), ("新北市", "新北市板橋區"))
+        records = [r for r in records if r["title"] != "新北的展"]
         self.assertTrue(records[0]["price"]["free"])
         self.assertEqual(records[1]["price"]["min"], 50)
         self.assertIsNone(records[2]["lat"])

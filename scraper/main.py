@@ -9,9 +9,11 @@
 from __future__ import annotations
 
 import argparse
+import difflib
 import hashlib
 import json
 import math
+import re
 import sys
 from datetime import date, timedelta
 from pathlib import Path
@@ -26,6 +28,10 @@ VENUES_PATH = ROOT / "scraper" / "data" / "venues.json"
 CACHE_PATH = ROOT / "scraper" / "data" / "geocode_cache.json"
 
 PRECISION_RANK = {"source": 0, "venue": 0, "address": 1, "road": 2, "district": 3, "none": 4}
+
+
+# 只在網路上展出、沒有實體地點的展覽
+_ONLINE_ONLY = re.compile(r"線上(攝影|藝術|特|策)?展")
 
 
 def in_window(rec: dict, today: date, days_ahead: int) -> bool:
@@ -51,11 +57,14 @@ def distance_m(a: dict, b: dict) -> float | None:
 
 
 def titles_match(a: str, b: str) -> bool:
+    """標題相同、互相包含，或幾乎相同（例如「阮的海海人生」與「阮ê海海人生」）。"""
     ka, kb = title_key(a), title_key(b)
     if ka == kb:
         return True
     short, long_ = sorted((ka, kb), key=len)
-    return len(short) >= 4 and short in long_
+    if len(short) >= 4 and short in long_:
+        return True
+    return len(short) >= 8 and difflib.SequenceMatcher(None, ka, kb).ratio() >= 0.85
 
 
 def dates_overlap(a: dict, b: dict, gap_days: int = 7) -> bool:
@@ -180,7 +189,7 @@ def run(output: Path, days_ahead: int, network_geocode: bool) -> int:
         # 來源可直接指定 city（單一縣市的來源），否則從地址判斷
         for r in items:
             r["city"] = r.get("city") or detect_city(r["address"], r["venue"], r["lat"], r["lng"])
-        in_region = [r for r in items if r["city"] in CITIES]
+        in_region = [r for r in items if r["city"] in CITIES and not _ONLINE_ONLY.search(r["title"])]
         recent = [r for r in in_region if in_window(r, today, days_ahead)]
         by_city = {c: sum(1 for r in recent if r["city"] == c) for c in CITIES}
         print(f"[{src.SOURCE_ID}] 共 {len(items)} 筆，北北基桃 {len(in_region)} 筆，近期 {len(recent)} 筆 {by_city}")

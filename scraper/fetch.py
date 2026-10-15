@@ -6,6 +6,7 @@ import json
 import ssl
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 USER_AGENT = (
@@ -52,6 +53,14 @@ def get_json(url: str, *, headers: dict | None = None, **kwargs):
 def post_json(url: str, payload: dict, **kwargs):
     body = json.dumps(payload).encode("utf-8")
     headers = {"Content-Type": "application/json; charset=utf-8", "Accept": "application/json"}
+    return _decode_json(request(url, data=body, headers=headers, **kwargs))
+
+
+def post_form(url: str, fields: dict, **kwargs):
+    """以 application/x-www-form-urlencoded 送出表單並解析 JSON 回應。"""
+    body = urllib.parse.urlencode(fields).encode("utf-8")
+    headers = {"Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+               "Accept": "application/json", "X-Requested-With": "XMLHttpRequest"}
     return _decode_json(request(url, data=body, headers=headers, **kwargs))
 
 

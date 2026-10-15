@@ -17,6 +17,13 @@
 | [文化部文化資料開放服務網](https://cloud.culture.tw/) | 全國藝文活動（類別 6：展覽） | 篩選出位於北北基桃的展覽 |
 | [臺北市立美術館](https://www.tfam.museum/) | 目前展覽、即將展出 | 官網公開的展覽資料 |
 | [國立臺灣科學教育館](https://www.ntsec.gov.tw/) | 特展、微型展 | 從官網列表頁與展覽頁讀取展期、展區；票價依官網常設展票價 |
+| [新北市美術館](https://ntcart.museum/) | 目前展覽、即將展出 | 官網展覽資料（含票價、購票連結） |
+| 新北市立博物館 RSS（[鶯歌陶瓷](https://www.ceramics.ntpc.gov.tw/)、[十三行](https://www.sshm.ntpc.gov.tw/)、[淡水古蹟](https://www.tshs.ntpc.gov.tw/)） | 展覽 | 從 RSS 說明讀取展期 |
+| [新北市政府 近期活動](https://data.ntpc.gov.tw/datasets/029e3fc2-1927-4534-8702-da7323be969b) | 市府、圖書館、地政事務所等的藝文展覽 | 只收標題含「展」的活動（排除書展、講座等） |
+| [基隆美術館](https://kmoa.klcg.gov.tw/) | 當期展覽 | 從官網列表頁與展覽頁讀取檔期、地點、費用 |
+| [國立海洋科技博物館](https://www.nmmst.gov.tw/) | 當期特展 | 從官網列表頁讀取展期 |
+
+桃園市目前沒有可用的展覽開放資料（桃園市立美術館官網有機器人驗證，不抓取），桃園的展覽主要來自文化部資料。
 
 同一檔展覽出現在多個來源時會自動合併（標題相同或互相包含、地點相近、展期重疊），並以場館官方資料優先。
 
@@ -81,7 +88,7 @@ scraper/
   normalize.py         票價、日期、地址、縣市與行政區判斷
   geocode.py           地點定位（含 Nominatim 查詢與快取）
   fetch.py             HTTP 工具（只用標準函式庫）
-  sources/             各資料來源（culture_express / moc / tfam / ntsec）
+  sources/             各資料來源（每個檔案一個來源）
   data/venues.json     北北基桃常見展覽場館座標與別名（人工確認）
   data/districts.json  各縣市行政區與中心點
   data/geocode_cache.json  Nominatim 查詢快取（自動產生）

@@ -1,5 +1,6 @@
 """
 臺北市政府文化局「臺北文化快遞」活動開放資料（臺北市資料大平臺 dataset 9a7af75b-9abd-4ac1-b359-685fbd7dac23）。
+以臺北市為主，也有少數新北市、基隆市、桃園市的活動。
 """
 
 from __future__ import annotations
@@ -7,7 +8,7 @@ from __future__ import annotations
 import re
 
 from .. import fetch
-from ..normalize import clean_text, parse_date, parse_float, parse_price, truncate
+from ..normalize import CITIES, clean_text, parse_date, parse_float, parse_price, to_tai, truncate
 
 SOURCE_ID = "culture_express"
 SOURCE_NAME = "臺北市文化局 臺北文化快遞"
@@ -46,7 +47,8 @@ def _http(value) -> str | None:
 def parse(items: list[dict]) -> list[dict]:
     records = []
     for item in items:
-        if item.get("Category") != "展覽" or item.get("City") != "臺北市":
+        city = to_tai(clean_text(item.get("City")))
+        if item.get("Category") != "展覽" or city not in CITIES:
             continue
         title = clean_text(item.get("Caption"))
         if not title or (_NOT_EXHIBITION.search(title) and "展" not in title):
@@ -62,11 +64,11 @@ def parse(items: list[dict]) -> list[dict]:
             lat = lng = None
         records.append({
             "source": SOURCE_ID,
-            "city": "臺北市",
+            "city": city,
             "source_id": item.get("ID"),
             "title": title,
             "venue": venue,
-            "address": f"臺北市{area}" if area and "臺北市" not in area else area or "臺北市",
+            "address": f"{city}{area}" if area and city not in area else area or city,
             "lat": lat,
             "lng": lng,
             "start": parse_date(item.get("StartDate")),
